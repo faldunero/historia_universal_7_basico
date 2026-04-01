@@ -25,7 +25,6 @@ nav::-webkit-scrollbar { display:none; }
 .page { display:none; } .page.active { display:block; }
 /* HOME */
 .home-hero { text-align:center; padding:52px 24px 36px; }
-.home-tag { display:inline-block; background:var(--paleol); color:#fff; font-size:11px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; padding:4px 14px; border-radius:20px; margin-bottom:14px; }
 h1 { font-family:'Cabin Sketch',cursive; font-size:clamp(28px,6vw,52px); line-height:1.1; color:var(--ink); margin-bottom:10px; }
 h1 span { color:var(--paleol); }
 .home-sub { font-size:15px; color:var(--muted); font-weight:600; max-width:500px; margin:0 auto 36px; }
@@ -128,10 +127,8 @@ body::before { content:''; position:fixed; inset:0; z-index:-1; pointer-events:n
   <button class="nav-btn" style="--nc:var(--tl)" data-page="timeline" onclick="showPage('timeline')">📅 Línea de Tiempo</button>
 </nav>
 
-<!-- HOME -->
 <div id="page-home" class="page active">
   <div class="home-hero">
-    <div class="home-tag">Historia · 4° a 6° básico</div>
     <h1>La <span>Época Ágrafa</span><br>de la Humanidad</h1>
     <p class="home-sub">Explora las etapas de la Prehistoria: desde los primeros humanos hasta la invención de la escritura</p>
   </div>
@@ -174,11 +171,9 @@ body::before { content:''; position:fixed; inset:0; z-index:-1; pointer-events:n
   </div>
 </div>
 
-<!-- PALEOLÍTICO -->
 <div id="page-paleolitico" class="page" style="--ec:var(--paleol)">
   <div class="epoch-header">
     <button class="back-btn" onclick="showPage('home')">← Volver al inicio</button>
-    <div class="epoch-badge">Época Ágrafa</div>
     <div style="font-size:48px;margin-bottom:8px">🦴</div>
     <div class="epoch-h2">Paleolítico</div>
     <div class="epoch-years">300,000 – 10,000 a.C. · La Edad de Piedra Antigua</div>
@@ -197,11 +192,9 @@ body::before { content:''; position:fixed; inset:0; z-index:-1; pointer-events:n
   <div class="tl-banner"><div class="tl-banner-inner" onclick="showPage('timeline')"><div class="tl-banner-text">🗺️ Ver los hitos del <span>Paleolítico</span> en la línea de tiempo</div><div class="tl-banner-btn">Ir a la línea →</div></div></div>
 </div>
 
-<!-- MESOLÍTICO -->
 <div id="page-mesolitico" class="page" style="--ec:var(--mesol)">
   <div class="epoch-header">
     <button class="back-btn" onclick="showPage('home')">← Volver al inicio</button>
-    <div class="epoch-badge">Época Ágrafa</div>
     <div style="font-size:48px;margin-bottom:8px">🌿</div>
     <div class="epoch-h2">Mesolítico</div>
     <div class="epoch-years">10,000 – 7,000 a.C. · El Gran Cambio</div>
@@ -220,11 +213,9 @@ body::before { content:''; position:fixed; inset:0; z-index:-1; pointer-events:n
   <div class="tl-banner"><div class="tl-banner-inner" onclick="showPage('timeline')"><div class="tl-banner-text">🗺️ Ver los hitos del <span>Mesolítico</span> en la línea de tiempo</div><div class="tl-banner-btn">Ir a la línea →</div></div></div>
 </div>
 
-<!-- NEOLÍTICO -->
 <div id="page-neolitico" class="page" style="--ec:var(--neol)">
   <div class="epoch-header">
     <button class="back-btn" onclick="showPage('home')">← Volver al inicio</button>
-    <div class="epoch-badge">Época Ágrafa</div>
     <div style="font-size:48px;margin-bottom:8px">🌾</div>
     <div class="epoch-h2">Neolítico</div>
     <div class="epoch-years">7,000 – 3,000 a.C. · La Revolución Agrícola</div>
@@ -243,11 +234,9 @@ body::before { content:''; position:fixed; inset:0; z-index:-1; pointer-events:n
   <div class="tl-banner"><div class="tl-banner-inner" onclick="showPage('timeline')"><div class="tl-banner-text">🗺️ Ver los hitos del <span>Neolítico</span> en la línea de tiempo</div><div class="tl-banner-btn">Ir a la línea →</div></div></div>
 </div>
 
-<!-- EDAD DE LOS METALES -->
 <div id="page-metales" class="page" style="--ec:var(--metal)">
   <div class="epoch-header">
     <button class="back-btn" onclick="showPage('home')">← Volver al inicio</button>
-    <div class="epoch-badge">Fin de la Prehistoria</div>
     <div style="font-size:48px;margin-bottom:8px">⚔️</div>
     <div class="epoch-h2">Edad de los Metales</div>
     <div class="epoch-years">3,000 – 1,200 a.C. · Cobre · Bronce · Hierro</div>
@@ -272,7 +261,6 @@ body::before { content:''; position:fixed; inset:0; z-index:-1; pointer-events:n
   <div class="tl-banner"><div class="tl-banner-inner" onclick="showPage('timeline')"><div class="tl-banner-text">🗺️ Ver la <span>Línea de Tiempo completa</span> de la Prehistoria</div><div class="tl-banner-btn">Ir a la línea →</div></div></div>
 </div>
 
-<!-- TIMELINE -->
 <div id="page-timeline" class="page">
   <div class="tl-page-header">
     <div class="tl-page-tag">Cronología completa</div>
@@ -295,7 +283,6 @@ body::before { content:''; position:fixed; inset:0; z-index:-1; pointer-events:n
   </div>
 </div>
 
-<!-- MODAL -->
 <div class="overlay" id="overlay" onclick="closeModal()">
   <div class="modal" id="modal" onclick="event.stopPropagation()">
     <button class="modal-close" onclick="closeModal()">✕</button>
@@ -417,4 +404,3 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal()
 </script>
 </body>
 </html>
-
