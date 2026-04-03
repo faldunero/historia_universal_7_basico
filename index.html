@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0065)file:///Users/felipealdunate/Downloads/linea_tiempo_agrafa_1.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>La Prehistoria — Época Ágrafa</title>
-<link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="./La Prehistoria — Época Ágrafa_files/css2" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --paleol: #7C5CBF; --mesol: #2A9D6E; --neol: #C2650A;
-  --metal: #B5421A;  --tl: #3D7FC1;
-  --bg: #FDF8EE; --ink: #2C2416; --paper: #FFFDF5;
-  --sand: #E8DFC8; --muted: #7A6E5C;
+  --paleol:#7C5CBF; --mesol:#2A9D6E; --neol:#C2650A;
+  --metal:#B5421A; --tl:#3D7FC1; --homin:#C44B8A; --test:#1A7A6E;
+  --bg:#FDF8EE; --ink:#2C2416; --paper:#FFFDF5;
+  --sand:#E8DFC8; --muted:#7A6E5C;
 }
 body { background:var(--bg); color:var(--ink); font-family:'Nunito',sans-serif; min-height:100vh; overflow-x:hidden; }
 /* NAV */
@@ -25,18 +25,19 @@ nav::-webkit-scrollbar { display:none; }
 .page { display:none; } .page.active { display:block; }
 /* HOME */
 .home-hero { text-align:center; padding:52px 24px 36px; }
+.home-tag { display:inline-block; background:var(--paleol); color:#fff; font-size:11px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; padding:4px 14px; border-radius:20px; margin-bottom:14px; }
 h1 { font-family:'Cabin Sketch',cursive; font-size:clamp(28px,6vw,52px); line-height:1.1; color:var(--ink); margin-bottom:10px; }
 h1 span { color:var(--paleol); }
 .home-sub { font-size:15px; color:var(--muted); font-weight:600; max-width:500px; margin:0 auto 36px; }
-.epoch-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px; max-width:900px; margin:0 auto; padding:0 24px 56px; }
-.epoch-card { background:var(--paper); border-radius:18px; border:2px solid var(--ec); padding:24px 20px 20px; cursor:pointer; transition:transform .18s,box-shadow .18s; position:relative; overflow:hidden; }
+.epoch-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; max-width:960px; margin:0 auto; padding:0 24px 40px; }
+.epoch-card { background:var(--paper); border-radius:18px; border:2px solid var(--ec); padding:22px 18px 18px; cursor:pointer; transition:transform .18s,box-shadow .18s; position:relative; overflow:hidden; }
 .epoch-card::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,color-mix(in srgb,var(--ec) 8%,transparent) 0%,transparent 60%); pointer-events:none; }
 .epoch-card:hover { transform:translateY(-4px); box-shadow:0 10px 32px rgba(0,0,0,.10); }
-.ec-emoji { font-size:36px; margin-bottom:10px; }
-.ec-title { font-family:'Cabin Sketch',cursive; font-size:20px; color:var(--ec); margin-bottom:4px; }
-.ec-years { font-size:11px; font-weight:800; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; margin-bottom:10px; }
-.ec-desc { font-size:13px; line-height:1.6; color:var(--ink); }
-.ec-btn { display:inline-block; margin-top:14px; background:var(--ec); color:#fff; font-size:11px; font-weight:800; padding:5px 14px; border-radius:20px; }
+.ec-emoji { font-size:32px; margin-bottom:8px; }
+.ec-title { font-family:'Cabin Sketch',cursive; font-size:18px; color:var(--ec); margin-bottom:3px; }
+.ec-years { font-size:10px; font-weight:800; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; margin-bottom:8px; }
+.ec-desc { font-size:12px; line-height:1.55; color:var(--ink); }
+.ec-btn { display:inline-block; margin-top:12px; background:var(--ec); color:#fff; font-size:11px; font-weight:800; padding:4px 12px; border-radius:20px; }
 /* EPOCH PAGE */
 .epoch-header { padding:44px 24px 28px; text-align:center; }
 .epoch-header .back-btn { display:inline-flex; align-items:center; gap:6px; background:none; border:none; cursor:pointer; font-family:'Nunito',sans-serif; font-size:13px; font-weight:700; color:var(--muted); margin-bottom:20px; padding:0; }
@@ -69,7 +70,7 @@ h1 span { color:var(--paleol); }
 .tl-sub { font-size:14px; color:var(--muted); font-weight:600; margin-bottom:8px; }
 .hint { font-size:13px; color:var(--muted); opacity:.75; animation:pulse 2.4s ease-in-out infinite; }
 @keyframes pulse { 0%,100%{opacity:.5} 50%{opacity:1} }
-.era-legend { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin:16px 24px 32px; }
+.era-legend { display:flex; justify-content:center; gap:16px; flex-wrap:wrap; margin:16px 24px 32px; }
 .era-pill { display:flex; align-items:center; gap:6px; font-size:12px; font-weight:700; color:var(--ink); cursor:pointer; padding:4px 10px; border-radius:20px; transition:background .15s; }
 .era-pill:hover { background:var(--sand); }
 .era-dot { width:12px; height:12px; border-radius:50%; flex-shrink:0; }
@@ -111,69 +112,197 @@ body::before { content:''; position:fixed; inset:0; z-index:-1; pointer-events:n
 .section-label { max-width:900px; margin:0 auto 12px; padding:0 24px; font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
 .metals-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px; max-width:900px; margin:0 auto 20px; padding:0 24px; }
 .metal-card { background:var(--paper); border-radius:14px; border:2px solid var(--mc2); padding:18px; text-align:center; }
+
+/* ===== HOMINIZACIÓN ===== */
+.homin-intro-box { max-width:860px; margin:0 auto 32px; padding:0 24px; }
+.homin-intro-inner { background:color-mix(in srgb,var(--homin) 10%,var(--bg)); border-radius:16px; padding:22px 24px; border:1.5px solid color-mix(in srgb,var(--homin) 30%,transparent); }
+.homin-intro-inner p { font-size:14px; line-height:1.75; color:var(--ink); }
+.homin-stages { max-width:960px; margin:0 auto 28px; padding:0 24px; display:flex; flex-direction:column; gap:0; }
+.homin-stage { display:flex; gap:16px; align-items:flex-start; padding:16px 0; border-bottom:1px dashed var(--sand); }
+.homin-stage:last-child { border-bottom:none; }
+.hs-icon { width:48px; height:48px; border-radius:50%; background:color-mix(in srgb,var(--homin) 15%,var(--bg)); display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; border:2px solid color-mix(in srgb,var(--homin) 30%,transparent); }
+.hs-content { flex:1; }
+.hs-name { font-family:'Cabin Sketch',cursive; font-size:16px; color:var(--homin); margin-bottom:2px; }
+.hs-years { font-size:10px; font-weight:800; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; margin-bottom:6px; }
+.hs-body { font-size:13px; line-height:1.6; color:var(--ink); }
+.sciences-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; max-width:900px; margin:0 auto 32px; padding:0 24px; }
+.sci-card { background:var(--paper); border-radius:12px; border-top:3px solid var(--sc); padding:14px; }
+.sci-type { font-size:9px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--sc); margin-bottom:6px; }
+.sci-name { font-size:14px; font-weight:800; color:var(--ink); margin-bottom:3px; }
+.sci-body { font-size:12px; line-height:1.5; color:var(--muted); }
+
+/* ===== MAPA ===== */
+.map-header { text-align:center; padding:44px 24px 28px; }
+.map-tag { display:inline-block; background:#3D7FC1; color:#fff; font-size:11px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; padding:4px 14px; border-radius:20px; margin-bottom:14px; }
+.map-h2 { font-family:'Cabin Sketch',cursive; font-size:clamp(24px,5vw,38px); color:var(--ink); margin-bottom:6px; }
+.map-sub { font-size:14px; color:var(--muted); font-weight:600; max-width:560px; margin:0 auto 20px; }
+.map-wrap { max-width:960px; margin:0 auto; padding:0 16px 40px; }
+.map-controls { background:var(--paper); border-radius:14px; border:1.5px solid var(--sand); padding:16px 20px; margin-bottom:14px; }
+.map-slider-row { display:flex; align-items:center; gap:12px; margin-bottom:8px; }
+.map-slider-row label { font-size:12px; font-weight:800; color:var(--muted); white-space:nowrap; }
+#map-slider { flex:1; accent-color:#7C5CBF; cursor:pointer; }
+#map-year-display { font-family:'Cabin Sketch',cursive; font-size:18px; color:var(--paleol); min-width:120px; text-align:right; white-space:nowrap; }
+.map-era-indicator { text-align:center; font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:4px; }
+#map-era-name { font-weight:800; }
+.map-legend { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:10px; font-size:11px; font-weight:700; color:var(--muted); }
+.map-legend-item { display:flex; align-items:center; gap:5px; }
+.map-legend-dot { width:10px; height:10px; border-radius:50%; }
+.map-svg-wrap { background:var(--paper); border-radius:16px; border:1.5px solid var(--sand); overflow:hidden; }
+.map-info-bar { background:color-mix(in srgb,var(--paleol) 10%,var(--bg)); border-radius:0 0 14px 14px; padding:10px 16px; font-size:12px; color:var(--ink); line-height:1.5; min-height:44px; }
+#map-info-text { font-weight:600; }
+/* people dots */
+.people-dot { cursor:pointer; transition:r .2s, opacity .3s; }
+.people-dot:hover { opacity:.8; }
+.migration-path { fill:none; stroke-dasharray:6 4; stroke-linecap:round; opacity:.55; transition:stroke-dashoffset .3s; animation:dash 12s linear infinite; }
+@keyframes dash { to { stroke-dashoffset:-200; } }
+
+/* ===== TEST ===== */
+.test-header { text-align:center; padding:44px 24px 28px; }
+.test-tag { display:inline-block; background:var(--test); color:#fff; font-size:11px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; padding:4px 14px; border-radius:20px; margin-bottom:14px; }
+.test-h2 { font-family:'Cabin Sketch',cursive; font-size:clamp(24px,5vw,38px); color:var(--test); margin-bottom:6px; }
+.test-sub { font-size:14px; color:var(--muted); font-weight:600; max-width:500px; margin:0 auto 20px; }
+.test-wrap { max-width:760px; margin:0 auto; padding:0 24px 56px; }
+.q-card { background:var(--paper); border-radius:16px; border:1.5px solid var(--sand); padding:22px 22px 18px; margin-bottom:16px; }
+.q-num { font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:6px; }
+.q-text { font-size:15px; font-weight:700; color:var(--ink); margin-bottom:14px; line-height:1.5; }
+.q-opts { display:flex; flex-direction:column; gap:8px; }
+.q-opt { display:flex; align-items:center; gap:10px; padding:10px 14px; border-radius:10px; border:1.5px solid var(--sand); cursor:pointer; font-size:13px; font-weight:600; color:var(--ink); background:var(--bg); transition:border-color .15s, background .15s; }
+.q-opt:hover { border-color:var(--test); background:color-mix(in srgb,var(--test) 6%,var(--bg)); }
+.q-opt.correct { border-color:#2A9D6E; background:color-mix(in srgb,#2A9D6E 12%,var(--bg)); color:#1a6648; }
+.q-opt.wrong { border-color:#C2650A; background:color-mix(in srgb,#C2650A 10%,var(--bg)); color:#7a3e06; }
+.q-opt.disabled { pointer-events:none; }
+.q-opt-letter { width:22px; height:22px; border-radius:50%; background:var(--sand); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:800; flex-shrink:0; }
+.q-opt.correct .q-opt-letter { background:#2A9D6E; color:#fff; }
+.q-opt.wrong .q-opt-letter { background:#C2650A; color:#fff; }
+.q-feedback { font-size:12px; margin-top:8px; padding:8px 12px; border-radius:8px; display:none; line-height:1.5; }
+.q-feedback.show { display:block; }
+.q-feedback.ok { background:color-mix(in srgb,#2A9D6E 15%,var(--bg)); color:#1a5e3a; }
+.q-feedback.fail { background:color-mix(in srgb,#C2650A 12%,var(--bg)); color:#7a3e06; }
+.test-score-wrap { display:none; text-align:center; background:var(--paper); border-radius:20px; border:2px solid var(--test); padding:36px 24px; margin-top:24px; }
+.test-score-wrap.show { display:block; animation:pop .3s cubic-bezier(.34,1.56,.64,1); }
+.score-emoji { font-size:52px; margin-bottom:12px; }
+.score-num { font-family:'Cabin Sketch',cursive; font-size:52px; color:var(--test); line-height:1; }
+.score-label { font-size:16px; font-weight:700; color:var(--muted); margin-bottom:12px; }
+.score-msg { font-size:15px; color:var(--ink); max-width:380px; margin:0 auto 20px; line-height:1.6; }
+.score-retry { background:var(--test); color:#fff; border:none; border-radius:12px; padding:12px 28px; font-family:'Nunito',sans-serif; font-size:14px; font-weight:800; cursor:pointer; transition:opacity .15s; }
+.score-retry:hover { opacity:.88; }
+.test-submit-wrap { text-align:center; padding-top:8px; }
+.test-submit { background:var(--test); color:#fff; border:none; border-radius:14px; padding:14px 36px; font-family:'Nunito',sans-serif; font-size:15px; font-weight:800; cursor:pointer; transition:opacity .15s; }
+.test-submit:hover { opacity:.88; }
 @media (max-width:600px) { .tl-wrap{padding:0 16px 40px;} .axis-outer{margin:90px 0 80px;} .ev-label{font-size:9px;max-width:60px;} .ev-year{font-size:8px;} .epoch-grid{grid-template-columns:1fr 1fr;} }
 @media (max-width:400px) { .epoch-grid{grid-template-columns:1fr;} }
+/* ===== CONTADOR DE VISITAS ===== */
+.stats-bar { background:var(--ink); color:#fff; font-family:'Nunito',sans-serif; font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center; gap:20px; flex-wrap:wrap; padding:5px 16px; letter-spacing:.02em; }
+.stat-item { display:flex; align-items:center; gap:5px; opacity:.9; }
+.stat-dot { width:7px; height:7px; border-radius:50%; flex-shrink:0; }
+.stat-dot.green { background:#4ade80; animation:blink 1.8s ease-in-out infinite; }
+.stat-dot.blue  { background:#60a5fa; }
+.stat-dot.amber { background:#fbbf24; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.35} }
+.stat-val { font-family:'Cabin Sketch',cursive; font-size:14px; color:#fff; }
+.stat-loading { opacity:.4; font-style:italic; }
 </style>
-</head>
+<style>@keyframes mapPulse{0%,100%{opacity:.75}50%{opacity:1}}</style></head>
 <body>
 
+<!-- BARRA DE ESTADÍSTICAS -->
+<div class="stats-bar" id="stats-bar">
+  <div class="stat-item">
+    <div class="stat-dot green"></div>
+    <span>Activos ahora:</span>
+    <span class="stat-val" id="stat-active">–</span>
+  </div>
+  <div class="stat-item">
+    <div class="stat-dot blue"></div>
+    <span>Visitas totales:</span>
+    <span class="stat-val" id="stat-total">–</span>
+  </div>
+  <div class="stat-item">
+    <div class="stat-dot amber"></div>
+    <span>IPs únicas:</span>
+    <span class="stat-val" id="stat-ips">–</span>
+  </div>
+  <div class="stat-item" style="opacity:.45;font-size:10px" id="stat-myip">Tu IP: 201.189.66.46</div>
+<div class="stat-item" style="opacity: 0.5; font-size: 9px; font-style: italic;">⚙️ Configura Firebase para activar el contador en tiempo real</div></div>
+
+<!-- NAV -->
 <nav id="main-nav">
   <span class="nav-logo">🪨 Prehistoria</span>
-  <button class="nav-btn active" style="--nc:var(--ink)" data-page="home" onclick="showPage('home')">🏠 Inicio</button>
-  <button class="nav-btn" style="--nc:var(--paleol)" data-page="paleolitico" onclick="showPage('paleolitico')">🦴 Paleolítico</button>
-  <button class="nav-btn" style="--nc:var(--mesol)" data-page="mesolitico" onclick="showPage('mesolitico')">🌿 Mesolítico</button>
-  <button class="nav-btn" style="--nc:var(--neol)" data-page="neolitico" onclick="showPage('neolitico')">🌾 Neolítico</button>
-  <button class="nav-btn" style="--nc:var(--metal)" data-page="metales" onclick="showPage('metales')">⚔️ Metales</button>
-  <button class="nav-btn" style="--nc:var(--tl)" data-page="timeline" onclick="showPage('timeline')">📅 Línea de Tiempo</button>
+  <button class="nav-btn active" style="--nc:var(--ink)" data-page="home" onclick="showPage(&#39;home&#39;)">🏠 Inicio</button>
+  <button class="nav-btn" style="--nc:var(--paleol)" data-page="paleolitico" onclick="showPage(&#39;paleolitico&#39;)">🦴 Paleolítico</button>
+  <button class="nav-btn" style="--nc:var(--mesol)" data-page="mesolitico" onclick="showPage(&#39;mesolitico&#39;)">🌿 Mesolítico</button>
+  <button class="nav-btn" style="--nc:var(--neol)" data-page="neolitico" onclick="showPage(&#39;neolitico&#39;)">🌾 Neolítico</button>
+  <button class="nav-btn" style="--nc:var(--metal)" data-page="metales" onclick="showPage(&#39;metales&#39;)">⚔️ Metales</button>
+  <button class="nav-btn" style="--nc:var(--homin)" data-page="hominizacion" onclick="showPage(&#39;hominizacion&#39;)">🧬 Hominización</button>
+  <button class="nav-btn" style="--nc:#3D7FC1" data-page="mapa" onclick="showPage(&#39;mapa&#39;)">🗺️ Mapa</button>
+  <button class="nav-btn" style="--nc:var(--test)" data-page="test" onclick="showPage(&#39;test&#39;)">📝 Test</button>
+  <button class="nav-btn" style="--nc:var(--tl)" data-page="timeline" onclick="showPage(&#39;timeline&#39;)">📅 Línea de Tiempo</button>
 </nav>
 
+<!-- ========== HOME ========== -->
 <div id="page-home" class="page active">
   <div class="home-hero">
+    <div class="home-tag">Historia · 4° a 6° básico</div>
     <h1>La <span>Época Ágrafa</span><br>de la Humanidad</h1>
     <p class="home-sub">Explora las etapas de la Prehistoria: desde los primeros humanos hasta la invención de la escritura</p>
   </div>
   <div class="epoch-grid">
-    <div class="epoch-card" style="--ec:var(--paleol)" onclick="showPage('paleolitico')">
-      <div class="ec-emoji">🦴</div>
-      <div class="ec-title">Paleolítico</div>
+    <div class="epoch-card" style="--ec:var(--paleol)" onclick="showPage(&#39;paleolitico&#39;)">
+      <div class="ec-emoji">🦴</div><div class="ec-title">Paleolítico</div>
       <div class="ec-years">300,000 – 10,000 a.C.</div>
-      <div class="ec-desc">La edad de piedra más antigua. Los humanos eran cazadores nómadas que vivían en cuevas y pintaban en sus paredes.</div>
+      <div class="ec-desc">La edad de piedra más antigua. Cazadores nómadas que vivían en cuevas y pintaban en sus paredes.</div>
       <div class="ec-btn">Explorar →</div>
     </div>
-    <div class="epoch-card" style="--ec:var(--mesol)" onclick="showPage('mesolitico')">
-      <div class="ec-emoji">🌿</div>
-      <div class="ec-title">Mesolítico</div>
+    <div class="epoch-card" style="--ec:var(--mesol)" onclick="showPage(&#39;mesolitico&#39;)">
+      <div class="ec-emoji">🌿</div><div class="ec-title">Mesolítico</div>
       <div class="ec-years">10,000 – 7,000 a.C.</div>
-      <div class="ec-desc">Un período de transición: los humanos empezaron a asentarse, domesticaron animales y perfeccionaron sus herramientas.</div>
+      <div class="ec-desc">Período de transición: se asentaron, domesticaron animales y perfeccionaron sus herramientas.</div>
       <div class="ec-btn">Explorar →</div>
     </div>
-    <div class="epoch-card" style="--ec:var(--neol)" onclick="showPage('neolitico')">
-      <div class="ec-emoji">🌾</div>
-      <div class="ec-title">Neolítico</div>
+    <div class="epoch-card" style="--ec:var(--neol)" onclick="showPage(&#39;neolitico&#39;)">
+      <div class="ec-emoji">🌾</div><div class="ec-title">Neolítico</div>
       <div class="ec-years">7,000 – 3,000 a.C.</div>
-      <div class="ec-desc">La gran revolución agrícola. Los humanos construyeron pueblos, cultivaron la tierra y crearon cerámica.</div>
+      <div class="ec-desc">La gran revolución agrícola. Construyeron pueblos, cultivaron la tierra y crearon cerámica.</div>
       <div class="ec-btn">Explorar →</div>
     </div>
-    <div class="epoch-card" style="--ec:var(--metal)" onclick="showPage('metales')">
-      <div class="ec-emoji">⚔️</div>
-      <div class="ec-title">Edad de los Metales</div>
+    <div class="epoch-card" style="--ec:var(--metal)" onclick="showPage(&#39;metales&#39;)">
+      <div class="ec-emoji">⚔️</div><div class="ec-title">Edad de los Metales</div>
       <div class="ec-years">3,000 – 1,200 a.C.</div>
-      <div class="ec-desc">Los humanos descubrieron cómo fundir el cobre, el bronce y el hierro para crear herramientas y armas más fuertes.</div>
+      <div class="ec-desc">Descubrieron cómo fundir el cobre, el bronce y el hierro para crear herramientas más fuertes.</div>
+      <div class="ec-btn">Explorar →</div>
+    </div>
+    <div class="epoch-card" style="--ec:var(--homin)" onclick="showPage(&#39;hominizacion&#39;)">
+      <div class="ec-emoji">🧬</div><div class="ec-title">Hominización</div>
+      <div class="ec-years">7 millones – 300,000 a.C.</div>
+      <div class="ec-desc">El largo proceso de cambios físicos y culturales que llevaron al surgimiento del ser humano moderno.</div>
+      <div class="ec-btn">Explorar →</div>
+    </div>
+    <div class="epoch-card" style="--ec:#3D7FC1" onclick="showPage(&#39;mapa&#39;)">
+      <div class="ec-emoji">🗺️</div><div class="ec-title">Mapa interactivo</div>
+      <div class="ec-years">Dispersión mundial</div>
+      <div class="ec-desc">Observa cómo se dispersaron los humanos por el planeta a través del tiempo con un slider interactivo.</div>
       <div class="ec-btn">Explorar →</div>
     </div>
   </div>
-  <div style="text-align:center;padding:0 24px 56px">
-    <div style="display:inline-block;background:var(--paper);border:2px solid var(--tl);border-radius:16px;padding:20px 28px;cursor:pointer;transition:transform .15s" onclick="showPage('timeline')" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform=''">
-      <div style="font-size:28px;margin-bottom:8px">📅</div>
-      <div style="font-family:'Cabin Sketch',cursive;font-size:20px;color:var(--tl);margin-bottom:4px">Ver la Línea de Tiempo completa</div>
-      <div style="font-size:13px;color:var(--muted);font-weight:600">Todos los hitos de la Prehistoria en una sola vista</div>
+  <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;padding:0 24px 56px">
+    <div style="background:var(--paper);border:2px solid var(--tl);border-radius:16px;padding:18px 24px;cursor:pointer;transition:transform .15s;text-align:center" onclick="showPage(&#39;timeline&#39;)" onmouseover="this.style.transform=&#39;translateY(-3px)&#39;" onmouseout="this.style.transform=&#39;&#39;">
+      <div style="font-size:26px;margin-bottom:6px">📅</div>
+      <div style="font-family:&#39;Cabin Sketch&#39;,cursive;font-size:17px;color:var(--tl);margin-bottom:3px">Línea de Tiempo</div>
+      <div style="font-size:12px;color:var(--muted);font-weight:600">Todos los hitos en una vista</div>
+    </div>
+    <div style="background: var(--paper); border: 2px solid var(--test); border-radius: 16px; padding: 18px 24px; cursor: pointer; transition: transform 0.15s; text-align: center;" onclick="showPage(&#39;test&#39;)" onmouseover="this.style.transform=&#39;translateY(-3px)&#39;" onmouseout="this.style.transform=&#39;&#39;">
+      <div style="font-size:26px;margin-bottom:6px">📝</div>
+      <div style="font-family:&#39;Cabin Sketch&#39;,cursive;font-size:17px;color:var(--test);margin-bottom:3px">Test de 15 preguntas</div>
+      <div style="font-size:12px;color:var(--muted);font-weight:600">¿Cuánto aprendiste?</div>
     </div>
   </div>
 </div>
 
+<!-- ========== PALEOLÍTICO ========== -->
 <div id="page-paleolitico" class="page" style="--ec:var(--paleol)">
   <div class="epoch-header">
-    <button class="back-btn" onclick="showPage('home')">← Volver al inicio</button>
+    <button class="back-btn" onclick="showPage(&#39;home&#39;)">← Volver al inicio</button>
+    <div class="epoch-badge">Época Ágrafa</div>
     <div style="font-size:48px;margin-bottom:8px">🦴</div>
     <div class="epoch-h2">Paleolítico</div>
     <div class="epoch-years">300,000 – 10,000 a.C. · La Edad de Piedra Antigua</div>
@@ -181,41 +310,45 @@ body::before { content:''; position:fixed; inset:0; z-index:-1; pointer-events:n
   </div>
   <div class="section-label">Características principales</div>
   <div class="chars-grid">
-    <div class="char-card"><div class="char-emoji">🏃</div><div class="char-title">Vida nómada</div><div class="char-body">No tenían hogares fijos. Se movían constantemente siguiendo a los animales que cazaban y buscando frutas y raíces según la temporada del año.</div></div>
+    <div class="char-card"><div class="char-emoji">🏃</div><div class="char-title">Vida nómada</div><div class="char-body">No tenían hogares fijos. Se movían constantemente siguiendo los animales que cazaban y buscando frutas y raíces según la temporada del año.</div></div>
     <div class="char-card"><div class="char-emoji">🪨</div><div class="char-title">Herramientas de piedra</div><div class="char-body">Tallaban piedras para hacer hachas, cuchillos y raspadores. También usaban huesos y palos. Estas herramientas eran su principal tecnología.</div></div>
-    <div class="char-card"><div class="char-emoji">🔥</div><div class="char-title">Dominio del fuego</div><div class="char-body">Aprendieron a controlar el fuego, lo que les permitió cocinar los alimentos, calentarse y protegerse de los animales peligrosos durante las noches.</div></div>
-    <div class="char-card"><div class="char-emoji">🎨</div><div class="char-title">Arte en las cuevas</div><div class="char-body">Pintaron bisontes, caballos y manos en las paredes de las cuevas. Las pinturas de Altamira (España) y Lascaux (Francia) tienen más de 17,000 años.</div></div>
-    <div class="char-card"><div class="char-emoji">👨‍👩‍👧</div><div class="char-title">Vida en grupo</div><div class="char-body">Vivían en pequeños grupos familiares de 20 a 50 personas. Todos colaboraban para cazar, recolectar alimentos y cuidar a los más pequeños.</div></div>
-    <div class="char-card"><div class="char-emoji">🐘</div><div class="char-title">Animales gigantes</div><div class="char-body">Convivían con mamuts lanudos, rinocerontes lanudos y tigres dientes de sable. Algunos de estos animales eran cazados para obtener carne y pieles.</div></div>
+    <div class="char-card"><div class="char-emoji">🔥</div><div class="char-title">Dominio del fuego</div><div class="char-body">Aprendieron a controlar el fuego, lo que les permitió cocinar los alimentos, calentarse y protegerse de los animales peligrosos.</div></div>
+    <div class="char-card"><div class="char-emoji">🎨</div><div class="char-title">Arte en las cuevas</div><div class="char-body">Pintaron bisontes, caballos y manos en las paredes de las cuevas. Altamira (España) y Lascaux (Francia) tienen más de 17,000 años.</div></div>
+    <div class="char-card"><div class="char-emoji">👨‍👩‍👧</div><div class="char-title">Vida en grupo</div><div class="char-body">Vivían en pequeños grupos familiares de 20 a 50 personas. Todos colaboraban para cazar, recolectar y cuidar a los más pequeños.</div></div>
+    <div class="char-card"><div class="char-emoji">🐘</div><div class="char-title">Animales gigantes</div><div class="char-body">Convivían con mamuts lanudos, rinocerontes lanudos y tigres dientes de sable. Algunos eran cazados para obtener carne y pieles.</div></div>
   </div>
-  <div class="fun-fact"><div class="fun-fact-inner"><div class="fun-fact-icon">💡</div><div class="fun-fact-text"><strong>¿Sabías que...?</strong> El Paleolítico duró más de 290,000 años. ¡Es el 99% de toda la historia de la humanidad! Todo lo que vino después (agricultura, ciudades, escritura) ocurrió en el 1% restante.</div></div></div>
-  <div class="tl-banner"><div class="tl-banner-inner" onclick="showPage('timeline')"><div class="tl-banner-text">🗺️ Ver los hitos del <span>Paleolítico</span> en la línea de tiempo</div><div class="tl-banner-btn">Ir a la línea →</div></div></div>
+  <div class="fun-fact"><div class="fun-fact-inner"><div class="fun-fact-icon">💡</div><div class="fun-fact-text"><strong>¿Sabías que...?</strong> El Paleolítico duró más de 290,000 años. ¡Es el 99% de toda la historia de la humanidad! Todo lo que vino después ocurrió en el 1% restante.</div></div></div>
+  <div class="tl-banner"><div class="tl-banner-inner" onclick="showPage(&#39;timeline&#39;)"><div class="tl-banner-text">🗺️ Ver los hitos del <span>Paleolítico</span> en la línea de tiempo</div><div class="tl-banner-btn">Ir a la línea →</div></div></div>
 </div>
 
+<!-- ========== MESOLÍTICO ========== -->
 <div id="page-mesolitico" class="page" style="--ec:var(--mesol)">
   <div class="epoch-header">
-    <button class="back-btn" onclick="showPage('home')">← Volver al inicio</button>
+    <button class="back-btn" onclick="showPage(&#39;home&#39;)">← Volver al inicio</button>
+    <div class="epoch-badge">Época Ágrafa</div>
     <div style="font-size:48px;margin-bottom:8px">🌿</div>
     <div class="epoch-h2">Mesolítico</div>
     <div class="epoch-years">10,000 – 7,000 a.C. · El Gran Cambio</div>
-    <p class="epoch-intro">El Mesolítico fue un período de transición muy importante. El clima de la Tierra se calentó, los glaciares se derritieron y los grandes animales desaparecieron. Los humanos tuvieron que adaptarse: perfeccionaron sus herramientas, aprendieron a pescar y comenzaron a vivir en lugares más fijos.</p>
+    <p class="epoch-intro">El Mesolítico fue un período de transición muy importante. El clima se calentó, los glaciares se derritieron y los grandes animales desaparecieron. Los humanos tuvieron que adaptarse: perfeccionaron sus herramientas, aprendieron a pescar y comenzaron a vivir en lugares más fijos.</p>
   </div>
   <div class="section-label">Características principales</div>
   <div class="chars-grid">
-    <div class="char-card"><div class="char-emoji">🎣</div><div class="char-title">Pesca y mariscos</div><div class="char-body">Al derretirse los hielos, aparecieron ríos y mares más accesibles. Los humanos fabricaron anzuelos de hueso, redes y pequeñas canoas para pescar.</div></div>
-    <div class="char-card"><div class="char-emoji">🐕</div><div class="char-title">Primer animal doméstico</div><div class="char-body">El perro fue el primer animal que los humanos domesticaron. Lo usaban para la caza y como compañía. ¡El mejor amigo del hombre ya existía hace 15,000 años!</div></div>
-    <div class="char-card"><div class="char-emoji">🏹</div><div class="char-title">Microlitos</div><div class="char-body">Crearon herramientas mucho más pequeñas y precisas llamadas microlitos: pequeñas láminas de piedra usadas como puntas de flecha o para cortar plantas.</div></div>
-    <div class="char-card"><div class="char-emoji">🏡</div><div class="char-title">Campamentos estables</div><div class="char-body">Empezaron a quedarse más tiempo en el mismo lugar, construyendo chozas con ramas y pieles. Ya no cambiaban de lugar tan seguido como antes.</div></div>
-    <div class="char-card"><div class="char-emoji">🌡️</div><div class="char-title">Cambio climático</div><div class="char-body">El fin de la última Era de Hielo transformó el planeta. Los bosques reemplazaron a las praderas y los humanos debieron adaptarse a estos nuevos ambientes más cálidos.</div></div>
-    <div class="char-card"><div class="char-emoji">🌰</div><div class="char-title">Recolección especializada</div><div class="char-body">Aprendieron a recolectar semillas, frutos y nueces de forma más organizada. Este conocimiento fue la base para que después inventaran la agricultura.</div></div>
+    <div class="char-card"><div class="char-emoji">🎣</div><div class="char-title">Pesca y mariscos</div><div class="char-body">Al derretirse los hielos, aparecieron ríos y mares más accesibles. Fabricaron anzuelos de hueso, redes y canoas para pescar.</div></div>
+    <div class="char-card"><div class="char-emoji">🐕</div><div class="char-title">Primer animal doméstico</div><div class="char-body">El perro fue el primer animal domesticado, usado para la caza y como compañía. ¡El mejor amigo del hombre ya existía hace 15,000 años!</div></div>
+    <div class="char-card"><div class="char-emoji">🏹</div><div class="char-title">Microlitos</div><div class="char-body">Crearon herramientas más pequeñas y precisas: pequeñas láminas de piedra usadas como puntas de flecha o para cortar plantas.</div></div>
+    <div class="char-card"><div class="char-emoji">🏡</div><div class="char-title">Campamentos estables</div><div class="char-body">Empezaron a quedarse más tiempo en el mismo lugar, construyendo chozas con ramas y pieles.</div></div>
+    <div class="char-card"><div class="char-emoji">🌡️</div><div class="char-title">Cambio climático</div><div class="char-body">El fin de la última Era de Hielo transformó el planeta. Los bosques reemplazaron a las praderas y los humanos debieron adaptarse.</div></div>
+    <div class="char-card"><div class="char-emoji">🌰</div><div class="char-title">Recolección especializada</div><div class="char-body">Aprendieron a recolectar semillas, frutos y nueces de forma organizada. Este conocimiento fue la base para la agricultura.</div></div>
   </div>
-  <div class="fun-fact"><div class="fun-fact-inner"><div class="fun-fact-icon">💡</div><div class="fun-fact-text"><strong>¿Sabías que...?</strong> Los restos de perros domésticos más antiguos encontrados tienen unos 14,000 años y fueron hallados en Alemania. ¡Estaban enterrados junto a sus dueños, lo que muestra que ya eran parte de la familia!</div></div></div>
-  <div class="tl-banner"><div class="tl-banner-inner" onclick="showPage('timeline')"><div class="tl-banner-text">🗺️ Ver los hitos del <span>Mesolítico</span> en la línea de tiempo</div><div class="tl-banner-btn">Ir a la línea →</div></div></div>
+  <div class="fun-fact"><div class="fun-fact-inner"><div class="fun-fact-icon">💡</div><div class="fun-fact-text"><strong>¿Sabías que...?</strong> Los restos de perros domésticos más antiguos tienen 14,000 años y fueron hallados en Alemania. ¡Estaban enterrados junto a sus dueños, mostrando que ya eran parte de la familia!</div></div></div>
+  <div class="tl-banner"><div class="tl-banner-inner" onclick="showPage(&#39;timeline&#39;)"><div class="tl-banner-text">🗺️ Ver los hitos del <span>Mesolítico</span> en la línea de tiempo</div><div class="tl-banner-btn">Ir a la línea →</div></div></div>
 </div>
 
+<!-- ========== NEOLÍTICO ========== -->
 <div id="page-neolitico" class="page" style="--ec:var(--neol)">
   <div class="epoch-header">
-    <button class="back-btn" onclick="showPage('home')">← Volver al inicio</button>
+    <button class="back-btn" onclick="showPage(&#39;home&#39;)">← Volver al inicio</button>
+    <div class="epoch-badge">Época Ágrafa</div>
     <div style="font-size:48px;margin-bottom:8px">🌾</div>
     <div class="epoch-h2">Neolítico</div>
     <div class="epoch-years">7,000 – 3,000 a.C. · La Revolución Agrícola</div>
@@ -223,20 +356,22 @@ body::before { content:''; position:fixed; inset:0; z-index:-1; pointer-events:n
   </div>
   <div class="section-label">Características principales</div>
   <div class="chars-grid">
-    <div class="char-card"><div class="char-emoji">🌱</div><div class="char-title">Agricultura</div><div class="char-body">Por primera vez los humanos plantaron semillas y cultivaron trigo, cebada y lentejas. Esto les aseguró alimento todo el año sin necesidad de cazar ni vagar.</div></div>
-    <div class="char-card"><div class="char-emoji">🐑</div><div class="char-title">Ganadería</div><div class="char-body">Domesticaron ovejas, cabras, cerdos y vacas. Los animales les daban leche, lana, cuero y carne. ¡Ya no tenían que salir a cazarlos al bosque!</div></div>
-    <div class="char-card"><div class="char-emoji">🏘️</div><div class="char-title">Primeros pueblos</div><div class="char-body">Al quedarse en un lugar fijo, construyeron casas de adobe y piedra. Así nacieron los primeros pueblos de la historia, como Çatalhöyük en Turquía (7,500 a.C.).</div></div>
-    <div class="char-card"><div class="char-emoji">🏺</div><div class="char-title">Cerámica</div><div class="char-body">Aprendieron a moldear el barro y cocerlo al fuego para fabricar vasijas, ollas y tinajas donde guardar alimentos. Fue la primera forma de hacer recipientes resistentes al agua.</div></div>
-    <div class="char-card"><div class="char-emoji">🪚</div><div class="char-title">Piedra pulida</div><div class="char-body">En lugar de solo tallar la piedra, comenzaron a pulirla para crear hachas y azadas más afiladas y duraderas para cortar árboles y trabajar la tierra.</div></div>
-    <div class="char-card"><div class="char-emoji">🤝</div><div class="char-title">Comercio y trueque</div><div class="char-body">Los distintos pueblos comenzaron a intercambiar productos: cerámica por pieles, semillas por herramientas. Este intercambio se llama trueque y fue el primer sistema comercial.</div></div>
+    <div class="char-card"><div class="char-emoji">🌱</div><div class="char-title">Agricultura</div><div class="char-body">Plantaron semillas y cultivaron trigo, cebada y lentejas. Esto les aseguró alimento todo el año sin necesidad de cazar ni vagar.</div></div>
+    <div class="char-card"><div class="char-emoji">🐑</div><div class="char-title">Ganadería</div><div class="char-body">Domesticaron ovejas, cabras, cerdos y vacas. Los animales les daban leche, lana, cuero y carne. ¡Ya no tenían que cazarlos!</div></div>
+    <div class="char-card"><div class="char-emoji">🏘️</div><div class="char-title">Primeros pueblos</div><div class="char-body">Construyeron casas de adobe y piedra. Así nacieron los primeros pueblos, como Çatalhöyük en Turquía (7,500 a.C.).</div></div>
+    <div class="char-card"><div class="char-emoji">🏺</div><div class="char-title">Cerámica</div><div class="char-body">Aprendieron a moldear el barro y cocerlo al fuego para fabricar vasijas, ollas y tinajas para guardar alimentos.</div></div>
+    <div class="char-card"><div class="char-emoji">🪚</div><div class="char-title">Piedra pulida</div><div class="char-body">Comenzaron a pulir la piedra para crear hachas y azadas más afiladas y duraderas para trabajar la tierra.</div></div>
+    <div class="char-card"><div class="char-emoji">🤝</div><div class="char-title">Comercio y trueque</div><div class="char-body">Los distintos pueblos intercambiaban productos entre sí. Este intercambio se llama trueque y fue el primer sistema comercial.</div></div>
   </div>
-  <div class="fun-fact"><div class="fun-fact-inner"><div class="fun-fact-icon">💡</div><div class="fun-fact-text"><strong>¿Sabías que...?</strong> Stonehenge, el famoso monumento de piedras gigantes en Inglaterra, fue construido durante el Neolítico, alrededor del año 3,000 a.C. Cada piedra pesa más de 25 toneladas. ¡Y lo movieron sin ruedas ni maquinaria!</div></div></div>
-  <div class="tl-banner"><div class="tl-banner-inner" onclick="showPage('timeline')"><div class="tl-banner-text">🗺️ Ver los hitos del <span>Neolítico</span> en la línea de tiempo</div><div class="tl-banner-btn">Ir a la línea →</div></div></div>
+  <div class="fun-fact"><div class="fun-fact-inner"><div class="fun-fact-icon">💡</div><div class="fun-fact-text"><strong>¿Sabías que...?</strong> Stonehenge, el famoso monumento de piedras gigantes en Inglaterra, fue construido durante el Neolítico alrededor del 3,000 a.C. Cada piedra pesa más de 25 toneladas. ¡Sin ruedas ni maquinaria!</div></div></div>
+  <div class="tl-banner"><div class="tl-banner-inner" onclick="showPage(&#39;timeline&#39;)"><div class="tl-banner-text">🗺️ Ver los hitos del <span>Neolítico</span> en la línea de tiempo</div><div class="tl-banner-btn">Ir a la línea →</div></div></div>
 </div>
 
+<!-- ========== EDAD DE LOS METALES ========== -->
 <div id="page-metales" class="page" style="--ec:var(--metal)">
   <div class="epoch-header">
-    <button class="back-btn" onclick="showPage('home')">← Volver al inicio</button>
+    <button class="back-btn" onclick="showPage(&#39;home&#39;)">← Volver al inicio</button>
+    <div class="epoch-badge">Fin de la Prehistoria</div>
     <div style="font-size:48px;margin-bottom:8px">⚔️</div>
     <div class="epoch-h2">Edad de los Metales</div>
     <div class="epoch-years">3,000 – 1,200 a.C. · Cobre · Bronce · Hierro</div>
@@ -244,23 +379,215 @@ body::before { content:''; position:fixed; inset:0; z-index:-1; pointer-events:n
   </div>
   <div class="section-label">Las tres edades de los metales</div>
   <div class="metals-grid">
-    <div class="metal-card" style="--mc2:#B87333"><div style="font-size:28px;margin-bottom:6px">🟤</div><div style="font-size:15px;font-weight:800;color:#B87333;margin-bottom:4px">Edad del Cobre</div><div style="font-size:11px;font-weight:800;color:var(--muted);margin-bottom:8px">3,000 – 2,000 a.C.</div><div style="font-size:13px;line-height:1.6">El cobre fue el primer metal que los humanos fundieron. Era blando pero más fácil de moldear que la piedra, y permitía crear formas antes imposibles.</div></div>
-    <div class="metal-card" style="--mc2:#C68B3A"><div style="font-size:28px;margin-bottom:6px">🏆</div><div style="font-size:15px;font-weight:800;color:#C68B3A;margin-bottom:4px">Edad del Bronce</div><div style="font-size:11px;font-weight:800;color:var(--muted);margin-bottom:8px">2,000 – 1,200 a.C.</div><div style="font-size:13px;line-height:1.6">Al mezclar cobre con estaño se obtuvo el bronce: mucho más duro. Con él hicieron espadas, escudos y arados para trabajar la tierra.</div></div>
-    <div class="metal-card" style="--mc2:#5C6B7A"><div style="font-size:28px;margin-bottom:6px">⚙️</div><div style="font-size:15px;font-weight:800;color:#5C6B7A;margin-bottom:4px">Edad del Hierro</div><div style="font-size:11px;font-weight:800;color:var(--muted);margin-bottom:8px">1,200 a.C. en adelante</div><div style="font-size:13px;line-height:1.6">El hierro era el metal más resistente. Las civilizaciones que lo dominaron se volvieron muy poderosas e iniciaron la Historia antigua.</div></div>
+    <div class="metal-card" style="--mc2:#B87333"><div style="font-size:28px;margin-bottom:6px">🟤</div><div style="font-size:15px;font-weight:800;color:#B87333;margin-bottom:4px">Edad del Cobre</div><div style="font-size:11px;font-weight:800;color:var(--muted);margin-bottom:8px">3,000 – 2,000 a.C.</div><div style="font-size:13px;line-height:1.6">El cobre fue el primer metal fundido. Era blando pero más fácil de moldear que la piedra.</div></div>
+    <div class="metal-card" style="--mc2:#C68B3A"><div style="font-size:28px;margin-bottom:6px">🏆</div><div style="font-size:15px;font-weight:800;color:#C68B3A;margin-bottom:4px">Edad del Bronce</div><div style="font-size:11px;font-weight:800;color:var(--muted);margin-bottom:8px">2,000 – 1,200 a.C.</div><div style="font-size:13px;line-height:1.6">Cobre + estaño = bronce, mucho más duro. Con él hicieron espadas, escudos y arados.</div></div>
+    <div class="metal-card" style="--mc2:#5C6B7A"><div style="font-size:28px;margin-bottom:6px">⚙️</div><div style="font-size:15px;font-weight:800;color:#5C6B7A;margin-bottom:4px">Edad del Hierro</div><div style="font-size:11px;font-weight:800;color:var(--muted);margin-bottom:8px">1,200 a.C. en adelante</div><div style="font-size:13px;line-height:1.6">El hierro era el metal más resistente. Las civilizaciones que lo dominaron se volvieron poderosas.</div></div>
   </div>
   <div class="section-label">Características principales</div>
   <div class="chars-grid">
-    <div class="char-card"><div class="char-emoji">🔨</div><div class="char-title">Metalurgia</div><div class="char-body">Aprendieron a calentar minerales a altísimas temperaturas en hornos especiales para extraer el metal y darle la forma que necesitaban. Este proceso se llama fundición.</div></div>
+    <div class="char-card"><div class="char-emoji">🔨</div><div class="char-title">Metalurgia</div><div class="char-body">Calentaban minerales a altísimas temperaturas en hornos especiales para extraer el metal y darle la forma deseada. Este proceso se llama fundición.</div></div>
     <div class="char-card"><div class="char-emoji">🌆</div><div class="char-title">Primeras ciudades</div><div class="char-body">Con mejores herramientas construyeron ciudades más grandes con templos, palacios y murallas. Surgieron las primeras civilizaciones en Mesopotamia y Egipto.</div></div>
-    <div class="char-card"><div class="char-emoji">⚔️</div><div class="char-title">Armas y guerras</div><div class="char-body">Las espadas, lanzas y escudos de metal hicieron que los ejércitos fueran mucho más poderosos. Surgieron los primeros reinos que conquistaban a sus vecinos.</div></div>
-    <div class="char-card"><div class="char-emoji">🚗</div><div class="char-title">La rueda</div><div class="char-body">Se perfeccionó la rueda para crear carros de guerra y de transporte tirados por caballos y bueyes, lo que aceleró el comercio y las conquistas militares.</div></div>
-    <div class="char-card"><div class="char-emoji">📜</div><div class="char-title">Escritura</div><div class="char-body">El aumento del comercio hizo necesario registrar información. Los sumerios inventaron la escritura cuneiforme alrededor del 3,100 a.C. ¡Termina la Prehistoria!</div></div>
-    <div class="char-card"><div class="char-emoji">🏛️</div><div class="char-title">Primeras leyes</div><div class="char-body">Con ciudades grandes surgieron las primeras leyes escritas, como el Código de Hammurabi (Babilonia, 1,754 a.C.), con 282 normas de convivencia para todos.</div></div>
+    <div class="char-card"><div class="char-emoji">⚔️</div><div class="char-title">Armas y guerras</div><div class="char-body">Las espadas y escudos de metal hicieron que los ejércitos fueran más poderosos. Surgieron los primeros reinos que conquistaban a sus vecinos.</div></div>
+    <div class="char-card"><div class="char-emoji">📜</div><div class="char-title">Escritura</div><div class="char-body">El aumento del comercio hizo necesario registrar información. Los sumerios inventaron la escritura cuneiforme alrededor del 3,100 a.C.</div></div>
+    <div class="char-card"><div class="char-emoji">🏛️</div><div class="char-title">Primeras leyes</div><div class="char-body">Surgieron las primeras leyes escritas, como el Código de Hammurabi (1,754 a.C.), con 282 normas de convivencia para todos.</div></div>
+    <div class="char-card"><div class="char-emoji">🚗</div><div class="char-title">La rueda</div><div class="char-body">Se perfeccionó la rueda para crear carros de guerra y transporte tirados por caballos y bueyes, acelerando el comercio.</div></div>
   </div>
-  <div class="fun-fact"><div class="fun-fact-inner"><div class="fun-fact-icon">💡</div><div class="fun-fact-text"><strong>¿Sabías que...?</strong> Las Pirámides de Egipto fueron construidas durante la Edad del Bronce, alrededor del 2,560 a.C. Los obreros usaron herramientas de cobre para cortar las enormes piedras. ¡Trabajaron más de 20 años para construir la Gran Pirámide!</div></div></div>
-  <div class="tl-banner"><div class="tl-banner-inner" onclick="showPage('timeline')"><div class="tl-banner-text">🗺️ Ver la <span>Línea de Tiempo completa</span> de la Prehistoria</div><div class="tl-banner-btn">Ir a la línea →</div></div></div>
+  <div class="fun-fact"><div class="fun-fact-inner"><div class="fun-fact-icon">💡</div><div class="fun-fact-text"><strong>¿Sabías que...?</strong> Las Pirámides de Egipto fueron construidas durante la Edad del Bronce, alrededor del 2,560 a.C. Los obreros usaron herramientas de cobre. ¡Trabajaron más de 20 años para construir la Gran Pirámide!</div></div></div>
+  <div class="tl-banner"><div class="tl-banner-inner" onclick="showPage(&#39;timeline&#39;)"><div class="tl-banner-text">🗺️ Ver la <span>Línea de Tiempo completa</span> de la Prehistoria</div><div class="tl-banner-btn">Ir a la línea →</div></div></div>
 </div>
 
+<!-- ========== HOMINIZACIÓN ========== -->
+<div id="page-hominizacion" class="page" style="--ec:var(--homin)">
+  <div class="epoch-header">
+    <button class="back-btn" onclick="showPage(&#39;home&#39;)">← Volver al inicio</button>
+    <div class="epoch-badge" style="background:var(--homin)">Ciencia Histórica</div>
+    <div style="font-size:48px;margin-bottom:8px">🧬</div>
+    <div class="epoch-h2" style="color:var(--homin)">Hominización</div>
+    <div class="epoch-years">7 millones – 300,000 a.C.</div>
+    <p class="epoch-intro">La hominización es un largo proceso de cambios físicos y culturales que han llevado al surgimiento del ser humano actual. Estos cambios incluyen el aumento del tamaño del cerebro, la postura erguida y el desarrollo del lenguaje.</p>
+  </div>
+
+  <div class="section-label">¿Qué es la Historia?</div>
+  <div class="homin-intro-box">
+    <div class="homin-intro-inner">
+      <p><strong>Definición:</strong> La historia es una ciencia que estudia lo que ha sucedido en el pasado de la humanidad. Es un diálogo permanente entre el presente y el pasado.</p>
+    </div>
+  </div>
+
+  <div class="section-label">Etapas de la hominización</div>
+  <div class="homin-stages">
+    <div class="homin-stage">
+      <div class="hs-icon">🦧</div>
+      <div class="hs-content">
+        <div class="hs-name">Australopithecus</div>
+        <div class="hs-years">4,000,000 – 1,000,000 a.C.</div>
+        <div class="hs-body">Fue el primer homínido en caminar en dos pies. Tenía un cerebro pequeño (similar al de un chimpancé), pero ya podía usar piedras como herramientas básicas. Vivía en África y medía unos 120 cm.</div>
+      </div>
+    </div>
+    <div class="homin-stage">
+      <div class="hs-icon">🔨</div>
+      <div class="hs-content">
+        <div class="hs-name">Homo habilis</div>
+        <div class="hs-years">2,500,000 – 1,500,000 a.C.</div>
+        <div class="hs-body">Su nombre significa "hombre hábil". Fue el primero en fabricar herramientas de piedra de forma intencional. Tenía un cerebro más grande que el Australopithecus y comenzaba a desarrollar el lenguaje.</div>
+      </div>
+    </div>
+    <div class="homin-stage">
+      <div class="hs-icon">🔥</div>
+      <div class="hs-content">
+        <div class="hs-name">Homo erectus</div>
+        <div class="hs-years">1,800,000 – 300,000 a.C.</div>
+        <div class="hs-body">El "hombre erguido" fue el primero en salir de África y colonizar Asia y Europa. Dominó el uso del fuego, fabricó herramientas más sofisticadas y vivía en grupos sociales organizados con comunicación más compleja.</div>
+      </div>
+    </div>
+    <div class="homin-stage">
+      <div class="hs-icon">❄️</div>
+      <div class="hs-content">
+        <div class="hs-name">Homo neanderthalensis</div>
+        <div class="hs-years">400,000 – 30,000 a.C.</div>
+        <div class="hs-body">Los neandertales eran muy fuertes y adaptados al frío. Fabricaban herramientas avanzadas, enterraban a sus muertos (¡lo que muestra pensamiento simbólico!) y cuidaban a los enfermos. Convivieron con el Homo sapiens antes de desaparecer.</div>
+      </div>
+    </div>
+    <div class="homin-stage">
+      <div class="hs-icon">🧑</div>
+      <div class="hs-content">
+        <div class="hs-name">Homo sapiens</div>
+        <div class="hs-years">300,000 a.C. – presente</div>
+        <div class="hs-body">¡Somos nosotros! Tiene el cerebro más grande y complejo de todos los homínidos. Desarrolló el lenguaje articulado, el arte, la escritura y la tecnología. Se expandió por todo el planeta y es el único homínido que sobrevive hasta hoy.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Ciencias que estudian la Prehistoria</div>
+  <div style="max-width:900px;margin:0 auto 10px;padding:0 24px;font-size:13px;font-weight:700;color:var(--muted)">Ciencias Sociales</div>
+  <div class="sciences-grid">
+    <div class="sci-card" style="--sc:var(--homin)"><div class="sci-type">Ciencia Social</div><div class="sci-name">Psicología</div><div class="sci-body">Estudia el comportamiento humano y los procesos mentales.</div></div>
+    <div class="sci-card" style="--sc:var(--homin)"><div class="sci-type">Ciencia Social</div><div class="sci-name">Arqueología</div><div class="sci-body">Estudia las culturas antiguas a través de objetos y restos materiales.</div></div>
+    <div class="sci-card" style="--sc:var(--homin)"><div class="sci-type">Ciencia Social</div><div class="sci-name">Sociología</div><div class="sci-body">Estudia cómo se organiza y funciona la sociedad.</div></div>
+    <div class="sci-card" style="--sc:var(--homin)"><div class="sci-type">Ciencia Social</div><div class="sci-name">Antropología</div><div class="sci-body">Estudia al ser humano desde sus orígenes físicos y culturales.</div></div>
+    <div class="sci-card" style="--sc:var(--homin)"><div class="sci-type">Ciencia Social</div><div class="sci-name">Economía</div><div class="sci-body">Estudia la producción, distribución y uso de los recursos.</div></div>
+    <div class="sci-card" style="--sc:var(--homin)"><div class="sci-type">Ciencia Social</div><div class="sci-name">Demografía</div><div class="sci-body">Estudia las poblaciones: su tamaño, crecimiento y distribución.</div></div>
+    <div class="sci-card" style="--sc:var(--homin)"><div class="sci-type">Ciencia Social</div><div class="sci-name">Estadística</div><div class="sci-body">Analiza y organiza datos para entender tendencias y patrones.</div></div>
+    <div class="sci-card" style="--sc:var(--homin)"><div class="sci-type">Ciencia Social</div><div class="sci-name">Cronología</div><div class="sci-body">Estudia el tiempo histórico y ordena los eventos en el tiempo.</div></div>
+    <div class="sci-card" style="--sc:var(--homin)"><div class="sci-type">Ciencia Social</div><div class="sci-name">Geografía</div><div class="sci-body">Estudia el espacio donde se desarrollaron las civilizaciones.</div></div>
+  </div>
+  <div style="max-width:900px;margin:8px auto 10px;padding:0 24px;font-size:13px;font-weight:700;color:var(--muted)">Ciencias Exactas que apoyan a la Historia</div>
+  <div class="sciences-grid" style="margin-bottom:32px">
+    <div class="sci-card" style="--sc:#3D7FC1"><div class="sci-type">Ciencia Exacta</div><div class="sci-name">Química</div><div class="sci-body">Permite datar restos orgánicos y analizar materiales prehistóricos.</div></div>
+    <div class="sci-card" style="--sc:#3D7FC1"><div class="sci-type">Ciencia Exacta</div><div class="sci-name">Física</div><div class="sci-body">Ayuda a entender los materiales y técnicas usadas por las culturas antiguas.</div></div>
+    <div class="sci-card" style="--sc:#3D7FC1"><div class="sci-type">Ciencia Exacta</div><div class="sci-name">Biología</div><div class="sci-body">Estudia los restos óseos para conocer cómo evolucionó el ser humano.</div></div>
+    <div class="sci-card" style="--sc:#3D7FC1"><div class="sci-type">Ciencia Exacta</div><div class="sci-name">Matemáticas</div><div class="sci-body">Permite calcular fechas, estadísticas y modelar la dispersión humana.</div></div>
+  </div>
+  <div class="fun-fact"><div class="fun-fact-inner"><div class="fun-fact-icon">💡</div><div class="fun-fact-text"><strong>¿Sabías que...?</strong> El ADN de los humanos modernos es un 99,9% idéntico al de cualquier otra persona en el planeta. La pequeña diferencia del 0,1% es lo que nos hace únicos. Además, compartimos un 98,7% de ADN con los chimpancés.</div></div></div>
+  <div class="tl-banner"><div class="tl-banner-inner" onclick="showPage(&#39;mapa&#39;)"><div class="tl-banner-text">🗺️ Ver cómo el <span>Homo sapiens</span> se dispersó por el planeta</div><div class="tl-banner-btn">Ver el mapa →</div></div></div>
+</div>
+
+<!-- ========== MAPA INTERACTIVO ========== -->
+<div id="page-mapa" class="page">
+  <div class="map-header">
+    <button class="back-btn" onclick="showPage(&#39;home&#39;)" style="display:inline-flex;align-items:center;gap:6px;background:none;border:none;cursor:pointer;font-family:&#39;Nunito&#39;,sans-serif;font-size:13px;font-weight:700;color:var(--muted);margin-bottom:20px;padding:0">← Volver al inicio</button>
+    <div class="map-tag">Dispersión humana</div>
+    <div class="map-h2">Dispersión del Ser Humano<br>por el Planeta</div>
+    <p class="map-sub">Mueve el control de tiempo para ver cómo el Homo sapiens migró desde África hacia el resto del mundo</p>
+  </div>
+  <div class="map-wrap">
+    <div class="map-controls">
+      <div class="map-slider-row">
+        <label>⏮ Pasado</label>
+        <input type="range" id="map-slider" min="0" max="100" value="0" oninput="updateMap(this.value)">
+        <span id="map-year-display">7,000,000 a.C.</span>
+      </div>
+      <div class="map-era-indicator">Época: <span id="map-era-name" style="color: rgb(196, 75, 138);">Australopithecus en África</span></div>
+      <div class="map-legend">
+        <div class="map-legend-item"><div class="map-legend-dot" style="background:#C44B8A"></div> Australopithecus / Homo habilis</div>
+        <div class="map-legend-item"><div class="map-legend-dot" style="background:#7C5CBF"></div> Homo erectus</div>
+        <div class="map-legend-item"><div class="map-legend-dot" style="background:#3D7FC1"></div> Homo neanderthal</div>
+        <div class="map-legend-item"><div class="map-legend-dot" style="background:#2A9D6E"></div> Homo sapiens</div>
+        <div class="map-legend-item"><div class="map-legend-dot" style="background:#C2650A"></div> Primeras ciudades</div>
+      </div>
+    </div>
+    <div class="map-svg-wrap">
+      <svg id="world-map" viewBox="0 0 800 420" width="100%" style="display:block;background:#d4eaf7">
+        <!-- Continentes simplificados -->
+        <!-- África -->
+        <path d="M370,140 L410,130 L440,145 L460,170 L465,210 L455,250 L440,290 L420,320 L400,335 L385,325 L370,300 L355,270 L348,240 L350,200 L355,170 Z" fill="#c8b89a" stroke="#a89070" stroke-width="1"></path>
+        <!-- Europa -->
+        <path d="M340,80 L360,70 L390,68 L410,75 L420,90 L415,105 L395,115 L370,118 L348,112 L335,100 Z" fill="#c8b89a" stroke="#a89070" stroke-width="1"></path>
+        <!-- Asia -->
+        <path d="M420,68 L500,55 L580,60 L650,75 L680,100 L670,130 L640,150 L600,165 L560,170 L520,160 L490,145 L460,135 L430,120 L415,105 L420,85 Z" fill="#c8b89a" stroke="#a89070" stroke-width="1"></path>
+        <!-- Oriente Medio -->
+        <path d="M430,120 L460,115 L480,130 L475,150 L455,155 L435,145 Z" fill="#c8b89a" stroke="#a89070" stroke-width="1"></path>
+        <!-- India -->
+        <path d="M510,155 L540,150 L555,175 L545,210 L530,230 L515,220 L505,195 L505,170 Z" fill="#c8b89a" stroke="#a89070" stroke-width="1"></path>
+        <!-- Sudeste asiático -->
+        <path d="M590,165 L620,160 L640,175 L635,200 L615,205 L595,195 Z" fill="#c8b89a" stroke="#a89070" stroke-width="1"></path>
+        <!-- Asia del Este -->
+        <path d="M635,100 L680,95 L700,115 L695,145 L670,160 L645,155 L630,135 L625,115 Z" fill="#c8b89a" stroke="#a89070" stroke-width="1"></path>
+        <!-- América del Norte -->
+        <path d="M90,70 L150,60 L200,65 L230,85 L240,115 L220,140 L190,155 L155,160 L125,148 L100,130 L85,105 Z" fill="#c8b89a" stroke="#a89070" stroke-width="1"></path>
+        <!-- América Central y Caribe -->
+        <path d="M175,160 L200,155 L210,170 L200,185 L180,185 L170,173 Z" fill="#c8b89a" stroke="#a89070" stroke-width="1"></path>
+        <!-- América del Sur -->
+        <path d="M175,190 L215,185 L235,200 L245,240 L240,290 L220,330 L195,350 L172,340 L155,310 L150,270 L155,230 L162,205 Z" fill="#c8b89a" stroke="#a89070" stroke-width="1"></path>
+        <!-- Australia -->
+        <path d="M630,250 L680,240 L710,255 L715,290 L695,315 L660,320 L635,305 L622,280 L625,258 Z" fill="#c8b89a" stroke="#a89070" stroke-width="1"></path>
+        <!-- Madagascar -->
+        <path d="M460,290 L470,280 L480,295 L475,315 L463,318 Z" fill="#c8b89a" stroke="#a89070" stroke-width="1"></path>
+        <!-- Groenlandia -->
+        <path d="M230,30 L270,22 L295,30 L290,52 L265,58 L240,50 Z" fill="#dde8f0" stroke="#a89070" stroke-width="1"></path>
+        <!-- Japón -->
+        <path d="M700,105 L712,100 L718,112 L708,122 L698,117 Z" fill="#c8b89a" stroke="#a89070" stroke-width="1"></path>
+        <!-- Islas del pacifico -->
+        <circle cx="720" cy="300" r="5" fill="#c8b89a" stroke="#a89070" stroke-width="1"></circle>
+        <circle cx="740" cy="280" r="4" fill="#c8b89a" stroke="#a89070" stroke-width="1"></circle>
+
+        <!-- Rutas de migración (paths que aparecen según slider) -->
+        <!-- África → Oriente Medio -->
+        <path class="migration-path" id="path-afr-me" d="M410,190 Q430,160 450,135" stroke="#2A9D6E" stroke-width="2" opacity="0" style="opacity: 0;"></path>
+        <!-- Oriente Medio → Europa -->
+        <path class="migration-path" id="path-me-eu" d="M455,135 Q420,115 385,100" stroke="#2A9D6E" stroke-width="2" opacity="0" style="opacity: 0;"></path>
+        <!-- Oriente Medio → Asia Central -->
+        <path class="migration-path" id="path-me-as" d="M460,135 Q520,125 580,115" stroke="#2A9D6E" stroke-width="2" opacity="0" style="opacity: 0;"></path>
+        <!-- Asia → SE Asia -->
+        <path class="migration-path" id="path-as-sea" d="M600,155 Q615,165 615,190" stroke="#2A9D6E" stroke-width="2" opacity="0" style="opacity: 0;"></path>
+        <!-- SE Asia → Australia -->
+        <path class="migration-path" id="path-sea-au" d="M620,205 Q635,225 650,255" stroke="#2A9D6E" stroke-width="2" opacity="0" style="opacity: 0;"></path>
+        <!-- Asia → América del Norte (Bering) -->
+        <path class="migration-path" id="path-as-am" d="M695,100 Q720,80 750,70 Q780,65 790,80 Q200,65 160,100" stroke="#2A9D6E" stroke-width="2" opacity="0" style="opacity: 0;"></path>
+        <!-- América Norte → Sur -->
+        <path class="migration-path" id="path-amn-ams" d="M190,160 Q195,175 195,260" stroke="#2A9D6E" stroke-width="2" opacity="0" style="opacity: 0;"></path>
+        <!-- Homo erectus Europa → Asia -->
+        <path class="migration-path" id="path-erec" d="M400,180 Q430,160 460,145 Q510,130 560,120" stroke="#7C5CBF" stroke-width="1.5" opacity="0" stroke-dasharray="4 6" style="opacity: 0;"></path>
+
+        <!-- Puntos de población (se controlan por JS) -->
+        <g id="map-dots"><circle cx="395" cy="240" r="8" fill="#C44B8A" stroke="white" stroke-width="1.5" opacity="0.88" class="people-dot" style="animation: 2s ease-in-out 0s infinite normal none running mapPulse;"></circle><circle cx="415" cy="260" r="7" fill="#C44B8A" stroke="white" stroke-width="1.5" opacity="0.88" class="people-dot" style="animation: 2s ease-in-out 0s infinite normal none running mapPulse;"></circle><circle cx="405" cy="210" r="6" fill="#C44B8A" stroke="white" stroke-width="1.5" opacity="0.88" class="people-dot" style="animation: 2s ease-in-out 0s infinite normal none running mapPulse;"></circle></g>
+
+        <!-- Etiquetas de continentes -->
+        <text x="407" y="230" text-anchor="middle" font-size="9" font-weight="700" fill="#6b5540" opacity=".7" font-family="sans-serif">ÁFRICA</text>
+        <text x="375" y="95" text-anchor="middle" font-size="8" font-weight="700" fill="#6b5540" opacity=".7" font-family="sans-serif">EUROPA</text>
+        <text x="560" y="110" text-anchor="middle" font-size="9" font-weight="700" fill="#6b5540" opacity=".7" font-family="sans-serif">ASIA</text>
+        <text x="170" y="105" text-anchor="middle" font-size="8" font-weight="700" fill="#6b5540" opacity=".7" font-family="sans-serif">NORTEAMÉRICA</text>
+        <text x="197" y="270" text-anchor="middle" font-size="8" font-weight="700" fill="#6b5540" opacity=".7" font-family="sans-serif">SUDAMÉRICA</text>
+        <text x="668" y="282" text-anchor="middle" font-size="8" font-weight="700" fill="#6b5540" opacity=".7" font-family="sans-serif">AUSTRALIA</text>
+      </svg>
+    </div>
+    <div class="map-info-bar" id="map-info-bar" style="background: color-mix(in srgb,#C44B8A 10%,var(--bg));">
+      <span id="map-info-text">Los Australopithecus y Homo habilis habitaban exclusivamente el este y sur de África. Caminaban erguidos pero su cerebro era pequeño.</span>
+    </div>
+  </div>
+</div>
+
+<!-- ========== TEST ========== -->
+<div id="page-test" class="page">
+  <div class="test-header">
+    <div class="test-tag">Autoevaluación</div>
+    <div class="test-h2">¿Cuánto aprendiste?</div>
+    <p class="test-sub">Responde las 15 preguntas y descubre tu puntaje. ¡Cada pregunta tiene solo una respuesta correcta!</p>
+  </div>
+  <div class="test-wrap" id="test-wrap"><div class="q-card"><div class="q-num">Pregunta 1 de 15</div><div class="q-text">¿Qué significa "época ágrafa"?</div><div class="q-opts" id="opts-0"><div class="q-opt"><span class="q-opt-letter">A</span>Período con escritura avanzada</div><div class="q-opt"><span class="q-opt-letter">B</span>Período sin escritura</div><div class="q-opt"><span class="q-opt-letter">C</span>Período con agricultura</div><div class="q-opt"><span class="q-opt-letter">D</span>Período con metales</div></div><div class="q-feedback" id="fb-0"></div></div><div class="q-card"><div class="q-num">Pregunta 2 de 15</div><div class="q-text">¿Dónde surgió el Homo sapiens moderno?</div><div class="q-opts" id="opts-1"><div class="q-opt"><span class="q-opt-letter">A</span>En Europa</div><div class="q-opt"><span class="q-opt-letter">B</span>En Asia</div><div class="q-opt"><span class="q-opt-letter">C</span>En África</div><div class="q-opt"><span class="q-opt-letter">D</span>En América</div></div><div class="q-feedback" id="fb-1"></div></div><div class="q-card"><div class="q-num">Pregunta 3 de 15</div><div class="q-text">¿Qué fue la "hominización"?</div><div class="q-opts" id="opts-2"><div class="q-opt"><span class="q-opt-letter">A</span>La invención de la escritura</div><div class="q-opt"><span class="q-opt-letter">B</span>El proceso de cambios físicos y culturales que llevó al ser humano actual</div><div class="q-opt"><span class="q-opt-letter">C</span>La domesticación de animales</div><div class="q-opt"><span class="q-opt-letter">D</span>El descubrimiento del fuego</div></div><div class="q-feedback" id="fb-2"></div></div><div class="q-card"><div class="q-num">Pregunta 4 de 15</div><div class="q-text">¿Cuál fue el primer homínido en caminar erguido?</div><div class="q-opts" id="opts-3"><div class="q-opt"><span class="q-opt-letter">A</span>Homo habilis</div><div class="q-opt"><span class="q-opt-letter">B</span>Homo erectus</div><div class="q-opt"><span class="q-opt-letter">C</span>Australopithecus</div><div class="q-opt"><span class="q-opt-letter">D</span>Homo sapiens</div></div><div class="q-feedback" id="fb-3"></div></div><div class="q-card"><div class="q-num">Pregunta 5 de 15</div><div class="q-text">¿Qué ciencia estudia las culturas antiguas a través de objetos y restos materiales?</div><div class="q-opts" id="opts-4"><div class="q-opt"><span class="q-opt-letter">A</span>Demografía</div><div class="q-opt"><span class="q-opt-letter">B</span>Psicología</div><div class="q-opt"><span class="q-opt-letter">C</span>Arqueología</div><div class="q-opt"><span class="q-opt-letter">D</span>Estadística</div></div><div class="q-feedback" id="fb-4"></div></div><div class="q-card"><div class="q-num">Pregunta 6 de 15</div><div class="q-text">¿Cuál fue el primer animal domesticado por el ser humano?</div><div class="q-opts" id="opts-5"><div class="q-opt"><span class="q-opt-letter">A</span>El gato</div><div class="q-opt"><span class="q-opt-letter">B</span>El caballo</div><div class="q-opt"><span class="q-opt-letter">C</span>La oveja</div><div class="q-opt"><span class="q-opt-letter">D</span>El perro</div></div><div class="q-feedback" id="fb-5"></div></div><div class="q-card"><div class="q-num">Pregunta 7 de 15</div><div class="q-text">¿Qué caracterizaba principalmente al Paleolítico?</div><div class="q-opts" id="opts-6"><div class="q-opt"><span class="q-opt-letter">A</span>Los humanos vivían de forma nómada cazando y recolectando</div><div class="q-opt"><span class="q-opt-letter">B</span>Los humanos cultivaban la tierra</div><div class="q-opt"><span class="q-opt-letter">C</span>Los humanos fundían metales</div><div class="q-opt"><span class="q-opt-letter">D</span>Los humanos construían ciudades</div></div><div class="q-feedback" id="fb-6"></div></div><div class="q-card"><div class="q-num">Pregunta 8 de 15</div><div class="q-text">¿Dónde se encuentran algunas de las pinturas rupestres más famosas del mundo?</div><div class="q-opts" id="opts-7"><div class="q-opt"><span class="q-opt-letter">A</span>Egipto y Mesopotamia</div><div class="q-opt"><span class="q-opt-letter">B</span>Altamira (España) y Lascaux (Francia)</div><div class="q-opt"><span class="q-opt-letter">C</span>India y China</div><div class="q-opt"><span class="q-opt-letter">D</span>México y Perú</div></div><div class="q-feedback" id="fb-7"></div></div><div class="q-card"><div class="q-num">Pregunta 9 de 15</div><div class="q-text">¿Qué fue la Revolución Neolítica?</div><div class="q-opts" id="opts-8"><div class="q-opt"><span class="q-opt-letter">A</span>El descubrimiento del fuego</div><div class="q-opt"><span class="q-opt-letter">B</span>La invención de la escritura</div><div class="q-opt"><span class="q-opt-letter">C</span>El paso de ser nómadas a cultivar la tierra y criar animales</div><div class="q-opt"><span class="q-opt-letter">D</span>El descubrimiento de los metales</div></div><div class="q-feedback" id="fb-8"></div></div><div class="q-card"><div class="q-num">Pregunta 10 de 15</div><div class="q-text">¿Qué metal fue el primero en ser fundido por el ser humano?</div><div class="q-opts" id="opts-9"><div class="q-opt"><span class="q-opt-letter">A</span>Hierro</div><div class="q-opt"><span class="q-opt-letter">B</span>Bronce</div><div class="q-opt"><span class="q-opt-letter">C</span>Cobre</div><div class="q-opt"><span class="q-opt-letter">D</span>Plata</div></div><div class="q-feedback" id="fb-9"></div></div><div class="q-card"><div class="q-num">Pregunta 11 de 15</div><div class="q-text">¿Qué civilización inventó la escritura cuneiforme?</div><div class="q-opts" id="opts-10"><div class="q-opt"><span class="q-opt-letter">A</span>Los egipcios</div><div class="q-opt"><span class="q-opt-letter">B</span>Los griegos</div><div class="q-opt"><span class="q-opt-letter">C</span>Los chinos</div><div class="q-opt"><span class="q-opt-letter">D</span>Los sumerios</div></div><div class="q-feedback" id="fb-10"></div></div><div class="q-card"><div class="q-num">Pregunta 12 de 15</div><div class="q-text">¿Qué ruta usaron los humanos para llegar a América desde Asia?</div><div class="q-opts" id="opts-11"><div class="q-opt"><span class="q-opt-letter">A</span>Cruzaron el océano Pacífico en barcos</div><div class="q-opt"><span class="q-opt-letter">B</span>El estrecho de Bering, que era tierra firme durante las glaciaciones</div><div class="q-opt"><span class="q-opt-letter">C</span>Viajaron por el norte a través de Europa</div><div class="q-opt"><span class="q-opt-letter">D</span>Llegaron por el sur desde África</div></div><div class="q-feedback" id="fb-11"></div></div><div class="q-card"><div class="q-num">Pregunta 13 de 15</div><div class="q-text">¿Qué homínido fue el primero en salir del continente africano?</div><div class="q-opts" id="opts-12"><div class="q-opt"><span class="q-opt-letter">A</span>Australopithecus</div><div class="q-opt"><span class="q-opt-letter">B</span>Homo habilis</div><div class="q-opt"><span class="q-opt-letter">C</span>Homo erectus</div><div class="q-opt"><span class="q-opt-letter">D</span>Homo neanderthalensis</div></div><div class="q-feedback" id="fb-12"></div></div><div class="q-card"><div class="q-num">Pregunta 14 de 15</div><div class="q-text">¿Cuál de estas NO es una ciencia social que estudia la Prehistoria?</div><div class="q-opts" id="opts-13"><div class="q-opt"><span class="q-opt-letter">A</span>Arqueología</div><div class="q-opt"><span class="q-opt-letter">B</span>Sociología</div><div class="q-opt"><span class="q-opt-letter">C</span>Física</div><div class="q-opt"><span class="q-opt-letter">D</span>Antropología</div></div><div class="q-feedback" id="fb-13"></div></div><div class="q-card"><div class="q-num">Pregunta 15 de 15</div><div class="q-text">¿Qué mezcla de metales forma el bronce?</div><div class="q-opts" id="opts-14"><div class="q-opt"><span class="q-opt-letter">A</span>Hierro y cobre</div><div class="q-opt"><span class="q-opt-letter">B</span>Cobre y estaño</div><div class="q-opt"><span class="q-opt-letter">C</span>Plata y oro</div><div class="q-opt"><span class="q-opt-letter">D</span>Hierro y plomo</div></div><div class="q-feedback" id="fb-14"></div></div><div class="test-submit-wrap"><button class="test-submit" onclick="showScore()">Ver mi resultado 🎯</button></div><div class="test-score-wrap" id="score-box"></div></div>
+</div>
+
+<!-- ========== TIMELINE ========== -->
 <div id="page-timeline" class="page">
   <div class="tl-page-header">
     <div class="tl-page-tag">Cronología completa</div>
@@ -269,20 +596,21 @@ body::before { content:''; position:fixed; inset:0; z-index:-1; pointer-events:n
     <p class="hint">👆 Toca un hito o el nombre de una época para ver más detalles</p>
   </div>
   <div class="era-legend">
-    <div class="era-pill" onclick="showPage('paleolitico')"><div class="era-dot" style="background:var(--paleol)"></div> Paleolítico</div>
-    <div class="era-pill" onclick="showPage('mesolitico')"><div class="era-dot" style="background:var(--mesol)"></div> Mesolítico</div>
-    <div class="era-pill" onclick="showPage('neolitico')"><div class="era-dot" style="background:var(--neol)"></div> Neolítico</div>
-    <div class="era-pill" onclick="showPage('metales')"><div class="era-dot" style="background:var(--metal)"></div> Edad de los Metales</div>
+    <div class="era-pill" onclick="showPage(&#39;paleolitico&#39;)"><div class="era-dot" style="background:var(--paleol)"></div> Paleolítico</div>
+    <div class="era-pill" onclick="showPage(&#39;mesolitico&#39;)"><div class="era-dot" style="background:var(--mesol)"></div> Mesolítico</div>
+    <div class="era-pill" onclick="showPage(&#39;neolitico&#39;)"><div class="era-dot" style="background:var(--neol)"></div> Neolítico</div>
+    <div class="era-pill" onclick="showPage(&#39;metales&#39;)"><div class="era-dot" style="background:var(--metal)"></div> Edad de los Metales</div>
   </div>
   <div class="tl-wrap">
     <div class="axis-outer">
       <div class="axis-track" id="axis">
         <div class="axis-arrow"></div>
-      </div>
+      <div class="era-segment" style="left: 0%; width: 46%; background: rgb(124, 92, 191);"></div><div class="era-range" style="left: 23%; color: rgb(124, 92, 191);">Paleolítico</div><div class="era-segment" style="left: 46%; width: 16%; background: rgb(42, 157, 110);"></div><div class="era-range" style="left: 54%; color: rgb(42, 157, 110);">Mesolítico</div><div class="era-segment" style="left: 62%; width: 18%; background: rgb(194, 101, 10);"></div><div class="era-range" style="left: 71%; color: rgb(194, 101, 10);">Neolítico</div><div class="era-segment" style="left: 80%; width: 20%; background: rgb(181, 66, 26);"></div><div class="era-range" style="left: 90%; color: rgb(181, 66, 26);">Edad de los Metales</div><div class="year-tick" style="left: 2%;">300,000 a.C.</div><div class="year-tick" style="left: 27%;">40,000 a.C.</div><div class="year-tick" style="left: 48%;">15,000 a.C.</div><div class="year-tick" style="left: 63%;">10,000 a.C.</div><div class="year-tick" style="left: 82%;">3,000 a.C.</div><div class="year-tick" style="left: 99%;">3,100 a.C.</div><div class="event top" style="left: calc(2% - 10px); --ec: #7C5CBF; bottom: 8px;"><div class="ev-year">~300,000 a.C.</div><div class="ev-label">Homo<br>sapiens</div><div class="ev-stem"></div><div class="ev-dot"></div></div><div class="event bot" style="left: calc(13% - 10px); --ec: #7C5CBF; top: 8px;"><div class="ev-dot"></div><div class="ev-stem"></div><div class="ev-label">Dominio<br>del fuego</div><div class="ev-year">~250,000 a.C.</div></div><div class="event top" style="left: calc(27% - 10px); --ec: #7C5CBF; bottom: 8px;"><div class="ev-year">~40,000 a.C.</div><div class="ev-label">Pintura<br>en cuevas</div><div class="ev-stem"></div><div class="ev-dot"></div></div><div class="event bot" style="left: calc(38% - 10px); --ec: #7C5CBF; top: 8px;"><div class="ev-dot"></div><div class="ev-stem"></div><div class="ev-label">Piedra<br>tallada</div><div class="ev-year">~70,000 a.C.</div></div><div class="event top" style="left: calc(48% - 10px); --ec: #2A9D6E; bottom: 8px;"><div class="ev-year">~15,000 a.C.</div><div class="ev-label">Primer<br>animal</div><div class="ev-stem"></div><div class="ev-dot"></div></div><div class="event bot" style="left: calc(57% - 10px); --ec: #2A9D6E; top: 8px;"><div class="ev-dot"></div><div class="ev-stem"></div><div class="ev-label">Primeras<br>prendas</div><div class="ev-year">~50,000 a.C.</div></div><div class="event top" style="left: calc(63% - 10px); --ec: #C2650A; bottom: 8px;"><div class="ev-year">~10,000 a.C.</div><div class="ev-label">Primeras<br>cosechas</div><div class="ev-stem"></div><div class="ev-dot"></div></div><div class="event bot" style="left: calc(74% - 10px); --ec: #C2650A; top: 8px;"><div class="ev-dot"></div><div class="ev-stem"></div><div class="ev-label">Vasijas<br>y trueque</div><div class="ev-year">~7,000 a.C.</div></div><div class="event top" style="left: calc(82% - 10px); --ec: #B5421A; bottom: 8px;"><div class="ev-year">~3,000 a.C.</div><div class="ev-label">Cobre<br>fundido</div><div class="ev-stem"></div><div class="ev-dot"></div></div><div class="event bot" style="left: calc(91% - 10px); --ec: #B5421A; top: 8px;"><div class="ev-dot"></div><div class="ev-stem"></div><div class="ev-label">Bronce<br>y espadas</div><div class="ev-year">~2,000 a.C.</div></div><div class="event top" style="left: calc(99% - 10px); --ec: #8B2FC9; bottom: 8px;"><div class="ev-year">~3,100 a.C.</div><div class="ev-label">¡Fin de<br>la época!</div><div class="ev-stem"></div><div class="ev-dot"></div></div></div>
     </div>
   </div>
 </div>
 
+<!-- MODAL -->
 <div class="overlay" id="overlay" onclick="closeModal()">
   <div class="modal" id="modal" onclick="event.stopPropagation()">
     <button class="modal-close" onclick="closeModal()">✕</button>
@@ -298,109 +626,338 @@ body::before { content:''; position:fixed; inset:0; z-index:-1; pointer-events:n
 <footer>Línea de tiempo educativa · Época Ágrafa · Historia Universal<br><span style="font-weight:700;color:var(--ink);opacity:.55;">© Felipe Aldunate</span></footer>
 
 <script>
+/* ===== NAVIGATION ===== */
 let currentModal = null;
-
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page-' + id).classList.add('active');
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
   const btn = document.querySelector('[data-page="' + id + '"]');
   if (btn) btn.classList.add('active');
-  window.scrollTo(0, 0);
+  window.scrollTo(0,0);
 }
 
+/* ===== TIMELINE ===== */
 const ERAS = [
-  { label:'Paleolítico', from:0,  to:46, color:'#7C5CBF', page:'paleolitico' },
-  { label:'Mesolítico',  from:46, to:62, color:'#2A9D6E', page:'mesolitico'  },
-  { label:'Neolítico',   from:62, to:80, color:'#C2650A', page:'neolitico'   },
+  { label:'Paleolítico', from:0, to:46, color:'#7C5CBF', page:'paleolitico' },
+  { label:'Mesolítico',  from:46, to:62, color:'#2A9D6E', page:'mesolitico' },
+  { label:'Neolítico',   from:62, to:80, color:'#C2650A', page:'neolitico' },
   { label:'Edad de los Metales', from:80, to:100, color:'#B5421A', page:'metales' },
 ];
-
 const EVENTS = [
-  { pct:2,  pos:'top', color:'#7C5CBF', era:'Paleolítico',           page:'paleolitico', emoji:'🦴', title:'Primeros Homo sapiens',     year:'Hace ~300,000 años', shortYear:'~300,000 a.C.', label:'Homo\nsapiens',     body:'Aparecen los primeros humanos modernos en África. Ya tenían un cerebro grande, se comunicaban con lenguaje hablado y vivían en grupos familiares.' },
-  { pct:13, pos:'bot', color:'#7C5CBF', era:'Paleolítico',           page:'paleolitico', emoji:'🔥', title:'Control del fuego',         year:'Hace ~250,000 años', shortYear:'~250,000 a.C.', label:'Dominio\ndel fuego', body:'Los humanos aprendieron a encender y controlar el fuego. Con él podían cocinar, calentarse y protegerse de animales peligrosos en las noches.' },
-  { pct:27, pos:'top', color:'#7C5CBF', era:'Paleolítico',           page:'paleolitico', emoji:'🎨', title:'Arte rupestre',             year:'Hace ~40,000 años',  shortYear:'~40,000 a.C.',  label:'Pintura\nen cuevas', body:'Los humanos pintaron bisontes, caballos y manos en las paredes de las cuevas. La cueva de Altamira (España) tiene más de 17,000 años.' },
-  { pct:38, pos:'bot', color:'#7C5CBF', era:'Paleolítico',           page:'paleolitico', emoji:'🏹', title:'Herramientas de piedra',    year:'Hace ~70,000 años',  shortYear:'~70,000 a.C.',  label:'Piedra\ntallada',   body:'Tallaban piedras con golpes precisos para crear cuchillos, lanzas y raspadores. Este conocimiento se transmitía de padres a hijos sin escritura.' },
-  { pct:48, pos:'top', color:'#2A9D6E', era:'Mesolítico',            page:'mesolitico',  emoji:'🐕', title:'Domesticación del perro',   year:'Hace ~15,000 años',  shortYear:'~15,000 a.C.',  label:'Primer\nanimal',    body:'El perro fue el primer animal que los humanos domesticaron, usado para la caza y como compañía. ¡El mejor amigo del hombre ya existía hace 15,000 años!' },
-  { pct:57, pos:'bot', color:'#2A9D6E', era:'Mesolítico',            page:'mesolitico',  emoji:'🧵', title:'Ropa cosida',               year:'Hace ~50,000 años',  shortYear:'~50,000 a.C.',  label:'Primeras\nprendas', body:'Con agujas de hueso cosieron pieles para crear ropa que los protegía del frío, lo que les permitió migrar a zonas más frías de Europa y Asia.' },
-  { pct:63, pos:'top', color:'#C2650A', era:'Neolítico',             page:'neolitico',   emoji:'🌾', title:'Revolución agrícola',       year:'Hace ~10,000 años',  shortYear:'~10,000 a.C.',  label:'Primeras\ncosechas', body:'Los humanos dejaron de ser nómadas y comenzaron a plantar trigo y cebada. Nacieron los primeros pueblos permanentes del mundo.' },
-  { pct:74, pos:'bot', color:'#C2650A', era:'Neolítico',             page:'neolitico',   emoji:'🏺', title:'Cerámica y trueque',        year:'Hace ~7,000 años',   shortYear:'~7,000 a.C.',   label:'Vasijas\ny trueque', body:'Aprendieron a hacer vasijas de barro cocido y los pueblos comenzaron a intercambiar productos entre sí. Nació el comercio.' },
-  { pct:82, pos:'top', color:'#B5421A', era:'Edad de los Metales',   page:'metales',     emoji:'🟤', title:'Edad del Cobre',            year:'3,000 a.C.',         shortYear:'~3,000 a.C.',   label:'Cobre\nfundido',    body:'Los humanos fundieron el cobre por primera vez. Era más fácil de moldear que la piedra, permitiendo crear herramientas y adornos con nuevas formas.' },
-  { pct:91, pos:'bot', color:'#B5421A', era:'Edad de los Metales',   page:'metales',     emoji:'🏆', title:'Edad del Bronce',           year:'2,000 a.C.',         shortYear:'~2,000 a.C.',   label:'Bronce\ny espadas', body:'Al mezclar cobre con estaño se obtuvo el bronce, mucho más duro. Con él fabricaron espadas, escudos y las Pirámides de Egipto se construyeron en esta era.' },
-  { pct:99, pos:'top', color:'#8B2FC9', era:'Fin de la Época Ágrafa', page:'home',       emoji:'📜', title:'Invención de la escritura', year:'3,100 a.C.',         shortYear:'~3,100 a.C.',   label:'¡Fin de\nla época!', body:'Los sumerios de Mesopotamia inventaron la escritura cuneiforme. Termina la Prehistoria y comienza la Historia. ¡La época ágrafa llega a su fin!' },
+  { pct:2,  pos:'top', color:'#7C5CBF', era:'Paleolítico', page:'paleolitico', emoji:'🦴', title:'Primeros Homo sapiens', year:'Hace ~300,000 años', shortYear:'~300,000 a.C.', label:'Homo\nsapiens', body:'Aparecen los primeros humanos modernos en África. Ya tenían un cerebro grande, se comunicaban con lenguaje hablado y vivían en grupos familiares.' },
+  { pct:13, pos:'bot', color:'#7C5CBF', era:'Paleolítico', page:'paleolitico', emoji:'🔥', title:'Control del fuego', year:'Hace ~250,000 años', shortYear:'~250,000 a.C.', label:'Dominio\ndel fuego', body:'Los humanos aprendieron a encender y controlar el fuego. Con él podían cocinar, calentarse y protegerse de animales peligrosos.' },
+  { pct:27, pos:'top', color:'#7C5CBF', era:'Paleolítico', page:'paleolitico', emoji:'🎨', title:'Arte rupestre', year:'Hace ~40,000 años', shortYear:'~40,000 a.C.', label:'Pintura\nen cuevas', body:'Los humanos pintaron bisontes, caballos y manos en las paredes de las cuevas. Altamira (España) tiene más de 17,000 años.' },
+  { pct:38, pos:'bot', color:'#7C5CBF', era:'Paleolítico', page:'paleolitico', emoji:'🏹', title:'Herramientas de piedra', year:'Hace ~70,000 años', shortYear:'~70,000 a.C.', label:'Piedra\ntallada', body:'Tallaban piedras para crear cuchillos, lanzas y raspadores. Este conocimiento se transmitía de padres a hijos sin escritura.' },
+  { pct:48, pos:'top', color:'#2A9D6E', era:'Mesolítico', page:'mesolitico', emoji:'🐕', title:'Domesticación del perro', year:'Hace ~15,000 años', shortYear:'~15,000 a.C.', label:'Primer\nanimal', body:'El perro fue el primer animal domesticado, usado para la caza y como compañía. ¡El mejor amigo del hombre ya existía hace 15,000 años!' },
+  { pct:57, pos:'bot', color:'#2A9D6E', era:'Mesolítico', page:'mesolitico', emoji:'🧵', title:'Ropa cosida', year:'Hace ~50,000 años', shortYear:'~50,000 a.C.', label:'Primeras\nprendas', body:'Con agujas de hueso cosieron pieles para crear ropa que los protegía del frío, permitiendo migrar a zonas más frías.' },
+  { pct:63, pos:'top', color:'#C2650A', era:'Neolítico', page:'neolitico', emoji:'🌾', title:'Revolución agrícola', year:'Hace ~10,000 años', shortYear:'~10,000 a.C.', label:'Primeras\ncosechas', body:'Los humanos dejaron de ser nómadas y comenzaron a plantar trigo y cebada. Nacieron los primeros pueblos permanentes.' },
+  { pct:74, pos:'bot', color:'#C2650A', era:'Neolítico', page:'neolitico', emoji:'🏺', title:'Cerámica y trueque', year:'Hace ~7,000 años', shortYear:'~7,000 a.C.', label:'Vasijas\ny trueque', body:'Aprendieron a hacer vasijas de barro cocido y los pueblos comenzaron a intercambiar productos entre sí. Nació el comercio.' },
+  { pct:82, pos:'top', color:'#B5421A', era:'Edad de los Metales', page:'metales', emoji:'🟤', title:'Edad del Cobre', year:'3,000 a.C.', shortYear:'~3,000 a.C.', label:'Cobre\nfundido', body:'Los humanos fundieron el cobre por primera vez, creando herramientas y adornos con formas antes imposibles en piedra.' },
+  { pct:91, pos:'bot', color:'#B5421A', era:'Edad de los Metales', page:'metales', emoji:'🏆', title:'Edad del Bronce', year:'2,000 a.C.', shortYear:'~2,000 a.C.', label:'Bronce\ny espadas', body:'Al mezclar cobre con estaño se obtuvo el bronce. Con él fabricaron espadas, escudos. Las Pirámides se construyeron en esta era.' },
+  { pct:99, pos:'top', color:'#8B2FC9', era:'Fin de la Época Ágrafa', page:'home', emoji:'📜', title:'Invención de la escritura', year:'3,100 a.C.', shortYear:'~3,100 a.C.', label:'¡Fin de\nla época!', body:'Los sumerios de Mesopotamia inventaron la escritura cuneiforme. Termina la Prehistoria y comienza la Historia.' },
 ];
-
 const YEAR_TICKS = [
-  { pct:2,  label:'300,000 a.C.' },
-  { pct:27, label:'40,000 a.C.'  },
-  { pct:48, label:'15,000 a.C.'  },
-  { pct:63, label:'10,000 a.C.'  },
-  { pct:82, label:'3,000 a.C.'   },
-  { pct:99, label:'3,100 a.C.'   },
+  {pct:2,label:'300,000 a.C.'},{pct:27,label:'40,000 a.C.'},{pct:48,label:'15,000 a.C.'},{pct:63,label:'10,000 a.C.'},{pct:82,label:'3,000 a.C.'},{pct:99,label:'3,100 a.C.'},
 ];
-
 const axis = document.getElementById('axis');
-
 ERAS.forEach(e => {
-  const seg = document.createElement('div');
-  seg.className = 'era-segment';
-  seg.style.left = e.from + '%';
-  seg.style.width = (e.to - e.from) + '%';
-  seg.style.background = e.color;
+  const seg = document.createElement('div'); seg.className='era-segment';
+  seg.style.left=e.from+'%'; seg.style.width=(e.to-e.from)+'%'; seg.style.background=e.color;
   axis.appendChild(seg);
-  const mid = (e.from + e.to) / 2;
-  const lbl = document.createElement('div');
-  lbl.className = 'era-range';
-  lbl.style.left = mid + '%';
-  lbl.style.color = e.color;
-  lbl.textContent = e.label;
-  lbl.onclick = () => showPage(e.page);
-  axis.appendChild(lbl);
+  const mid=(e.from+e.to)/2;
+  const lbl=document.createElement('div'); lbl.className='era-range';
+  lbl.style.left=mid+'%'; lbl.style.color=e.color; lbl.textContent=e.label;
+  lbl.onclick=()=>showPage(e.page); axis.appendChild(lbl);
 });
-
 YEAR_TICKS.forEach(t => {
-  const tick = document.createElement('div');
-  tick.className = 'year-tick';
-  tick.style.left = t.pct + '%';
-  tick.textContent = t.label;
-  axis.appendChild(tick);
+  const tick=document.createElement('div'); tick.className='year-tick';
+  tick.style.left=t.pct+'%'; tick.textContent=t.label; axis.appendChild(tick);
 });
-
 EVENTS.forEach(ev => {
-  const el = document.createElement('div');
-  el.className = 'event ' + ev.pos;
-  el.style.left = 'calc(' + ev.pct + '% - 10px)';
-  el.style.setProperty('--ec', ev.color);
-  if (ev.pos === 'top') el.style.bottom = '8px';
-  else el.style.top = '8px';
-  const lines = ev.label.split('\n').join('<br>');
-  const dot   = '<div class="ev-dot"></div>';
-  const stem  = '<div class="ev-stem"></div>';
-  const label = '<div class="ev-label">' + lines + '</div>';
-  const year  = '<div class="ev-year">' + ev.shortYear + '</div>';
-  el.innerHTML = ev.pos === 'top' ? year + label + stem + dot : dot + stem + label + year;
-  el.addEventListener('click', () => openModal(ev));
-  axis.appendChild(el);
+  const el=document.createElement('div'); el.className='event '+ev.pos;
+  el.style.left='calc('+ev.pct+'% - 10px)'; el.style.setProperty('--ec',ev.color);
+  if(ev.pos==='top') el.style.bottom='8px'; else el.style.top='8px';
+  const lines=ev.label.split('\n').join('<br>');
+  const dot='<div class="ev-dot"></div>',stem='<div class="ev-stem"></div>';
+  const label='<div class="ev-label">'+lines+'</div>',year='<div class="ev-year">'+ev.shortYear+'</div>';
+  el.innerHTML=ev.pos==='top'?year+label+stem+dot:dot+stem+label+year;
+  el.addEventListener('click',()=>openModal(ev)); axis.appendChild(el);
 });
-
 function openModal(ev) {
-  currentModal = ev;
-  document.getElementById('m-emoji').textContent  = ev.emoji;
-  document.getElementById('m-title').textContent  = ev.title;
-  document.getElementById('m-period').textContent = ev.year;
-  document.getElementById('m-body').textContent   = ev.body;
-  document.getElementById('m-era').textContent    = ev.era;
-  const modal = document.getElementById('modal');
-  modal.style.setProperty('--mc', ev.color);
-  modal.style.borderColor = ev.color;
-  const btn = document.getElementById('m-explore');
-  btn.style.background = ev.color;
-  btn.style.display = ev.page && ev.page !== 'home' ? 'block' : 'none';
+  currentModal=ev;
+  document.getElementById('m-emoji').textContent=ev.emoji;
+  document.getElementById('m-title').textContent=ev.title;
+  document.getElementById('m-period').textContent=ev.year;
+  document.getElementById('m-body').textContent=ev.body;
+  document.getElementById('m-era').textContent=ev.era;
+  const modal=document.getElementById('modal');
+  modal.style.setProperty('--mc',ev.color); modal.style.borderColor=ev.color;
+  const btn=document.getElementById('m-explore'); btn.style.background=ev.color;
+  btn.style.display=ev.page&&ev.page!=='home'?'block':'none';
   document.getElementById('overlay').classList.add('open');
 }
-function closeModal() { document.getElementById('overlay').classList.remove('open'); }
-function goToEra() { closeModal(); if (currentModal && currentModal.page) showPage(currentModal.page); }
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+function closeModal(){document.getElementById('overlay').classList.remove('open');}
+function goToEra(){closeModal();if(currentModal&&currentModal.page)showPage(currentModal.page);}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+/* ===== MAP ===== */
+const MAP_STAGES = [
+  { val:0,  year:'7,000,000 a.C.', era:'Australopithecus en África', color:'#C44B8A',
+    info:'Los Australopithecus y Homo habilis habitaban exclusivamente el este y sur de África. Caminaban erguidos pero su cerebro era pequeño.',
+    dots:[{cx:395,cy:240,r:8},{cx:415,cy:260,r:7},{cx:405,cy:210,r:6}],
+    paths:[] },
+  { val:20, year:'1,800,000 a.C.', era:'Homo erectus sale de África', color:'#7C5CBF',
+    info:'El Homo erectus fue el primer homínido en salir de África, llegando al Oriente Medio, Asia y Europa. Dominaba el fuego.',
+    dots:[{cx:400,cy:230,r:7,c:'#C44B8A'},{cx:455,cy:135,r:7},{cx:520,cy:130,r:7},{cx:575,cy:115,r:7},{cx:640,cy:125,r:6},{cx:385,cy:95,r:6}],
+    paths:['path-erec'] },
+  { val:40, year:'300,000 a.C.', era:'Aparece el Homo sapiens', color:'#7C5CBF',
+    info:'El Homo sapiens surge en África. Los neandertales dominan Europa y parte de Asia. Ambas especies conviven brevemente.',
+    dots:[{cx:395,cy:200,r:9,c:'#2A9D6E'},{cx:410,cy:240,r:7,c:'#2A9D6E'},{cx:380,cy:100,r:8,c:'#3D7FC1'},{cx:450,cy:130,r:8,c:'#3D7FC1'},{cx:550,cy:115,r:7,c:'#7C5CBF'}],
+    paths:['path-erec'] },
+  { val:55, year:'70,000 a.C.', era:'Homo sapiens sale de África', color:'#2A9D6E',
+    info:'El Homo sapiens comienza su gran migración desde África hacia el Oriente Medio, siguiendo las costas hacia Asia.',
+    dots:[{cx:400,cy:210,r:8,c:'#2A9D6E'},{cx:455,cy:138,r:7,c:'#2A9D6E'},{cx:510,cy:160,r:6,c:'#2A9D6E'},{cx:380,cy:95,r:6,c:'#3D7FC1'}],
+    paths:['path-afr-me','path-me-as'] },
+  { val:68, year:'40,000 a.C.', era:'Expansión hacia Europa y Asia', color:'#2A9D6E',
+    info:'El Homo sapiens llega a Europa, donde convive con los neandertales, y avanza por Asia hacia el sudeste. El arte rupestre florece.',
+    dots:[{cx:400,cy:210,r:7,c:'#2A9D6E'},{cx:380,cy:95,r:7,c:'#2A9D6E'},{cx:540,cy:140,r:7,c:'#2A9D6E'},{cx:610,cy:170,r:6,c:'#2A9D6E'},{cx:460,cy:130,r:5,c:'#2A9D6E'}],
+    paths:['path-afr-me','path-me-eu','path-me-as','path-as-sea'] },
+  { val:78, year:'50,000 a.C.', era:'Llegada a Australia', color:'#2A9D6E',
+    info:'El Homo sapiens llega a Australia cruzando el mar en embarcaciones primitivas. Es uno de los primeros grandes viajes en el agua.',
+    dots:[{cx:400,cy:210,r:6,c:'#2A9D6E'},{cx:375,cy:90,r:6,c:'#2A9D6E'},{cx:600,cy:165,r:6,c:'#2A9D6E'},{cx:658,cy:280,r:7,c:'#2A9D6E'},{cx:670,cy:295,r:6,c:'#2A9D6E'}],
+    paths:['path-afr-me','path-me-eu','path-me-as','path-as-sea','path-sea-au'] },
+  { val:88, year:'15,000 a.C.', era:'Cruce de Bering hacia América', color:'#2A9D6E',
+    info:'Los humanos cruzan el Estrecho de Bering (entonces tierra firme por las glaciaciones) desde Asia hacia América del Norte.',
+    dots:[{cx:400,cy:210,r:5,c:'#2A9D6E'},{cx:375,cy:90,r:5,c:'#2A9D6E'},{cx:600,cy:165,r:5,c:'#2A9D6E'},{cx:660,cy:280,r:5,c:'#2A9D6E'},{cx:165,cy:110,r:7,c:'#2A9D6E'},{cx:180,cy:130,r:6,c:'#2A9D6E'}],
+    paths:['path-afr-me','path-me-eu','path-me-as','path-as-sea','path-sea-au','path-as-am'] },
+  { val:95, year:'10,000 a.C.', era:'Poblamiento de América y Revolución Agrícola', color:'#C2650A',
+    info:'El ser humano ha llegado a todos los continentes excepto la Antártica. En el Oriente Medio comienza la agricultura y los primeros pueblos.',
+    dots:[{cx:400,cy:210,r:5,c:'#2A9D6E'},{cx:375,cy:90,r:5,c:'#2A9D6E'},{cx:600,cy:165,r:5,c:'#2A9D6E'},{cx:660,cy:280,r:5,c:'#2A9D6E'},{cx:165,cy:110,r:6,c:'#2A9D6E'},{cx:195,cy:270,r:6,c:'#2A9D6E'},{cx:455,cy:138,r:7,c:'#C2650A'}],
+    paths:['path-afr-me','path-me-eu','path-me-as','path-as-sea','path-sea-au','path-as-am','path-amn-ams'] },
+  { val:100, year:'3,000 a.C.', era:'Primeras civilizaciones y escritura', color:'#C2650A',
+    info:'El ser humano ha conquistado todo el planeta. Surgen las primeras ciudades, la escritura y las civilizaciones en Mesopotamia, Egipto, India y China.',
+    dots:[{cx:400,cy:210,r:5,c:'#2A9D6E'},{cx:375,cy:90,r:5,c:'#2A9D6E'},{cx:600,cy:165,r:5,c:'#2A9D6E'},{cx:660,cy:280,r:5,c:'#2A9D6E'},{cx:165,cy:110,r:5,c:'#2A9D6E'},{cx:195,cy:270,r:5,c:'#2A9D6E'},{cx:455,cy:138,r:9,c:'#C2650A'},{cx:400,cy:175,r:8,c:'#C2650A'},{cx:530,cy:175,r:8,c:'#C2650A'},{cx:650,cy:120,r:7,c:'#C2650A'}],
+    paths:['path-afr-me','path-me-eu','path-me-as','path-as-sea','path-sea-au','path-as-am','path-amn-ams'] },
+];
+
+function updateMap(val) {
+  val = parseInt(val);
+  let stage = MAP_STAGES[0];
+  for(let i=0;i<MAP_STAGES.length;i++) { if(val>=MAP_STAGES[i].val) stage=MAP_STAGES[i]; }
+  document.getElementById('map-year-display').textContent = stage.year;
+  document.getElementById('map-era-name').textContent = stage.era;
+  document.getElementById('map-era-name').style.color = stage.color;
+  document.getElementById('map-info-text').textContent = stage.info;
+  document.getElementById('map-info-bar').style.background = 'color-mix(in srgb,'+stage.color+' 10%,var(--bg))';
+  // update paths
+  document.querySelectorAll('.migration-path').forEach(p=>{ p.style.opacity='0'; });
+  if(stage.paths) stage.paths.forEach(pid=>{ const el=document.getElementById(pid); if(el) el.style.opacity='0.55'; });
+  // update dots
+  const g=document.getElementById('map-dots');
+  g.innerHTML='';
+  if(stage.dots) stage.dots.forEach(d=>{
+    const c=d.c||stage.color;
+    const circle=document.createElementNS('http://www.w3.org/2000/svg','circle');
+    circle.setAttribute('cx',d.cx); circle.setAttribute('cy',d.cy); circle.setAttribute('r',d.r);
+    circle.setAttribute('fill',c); circle.setAttribute('stroke','white'); circle.setAttribute('stroke-width','1.5');
+    circle.setAttribute('opacity','0.88'); circle.classList.add('people-dot');
+    // pulse animation
+    circle.style.animation='mapPulse 2s ease-in-out infinite';
+    g.appendChild(circle);
+  });
+}
+// Add pulse keyframe dynamically
+const mapStyle=document.createElement('style');
+mapStyle.textContent='@keyframes mapPulse{0%,100%{opacity:.75}50%{opacity:1}}';
+document.head.appendChild(mapStyle);
+updateMap(0);
+
+/* ===== TEST ===== */
+const QUESTIONS = [
+  { q:'¿Qué significa "época ágrafa"?', opts:['Período con escritura avanzada','Período sin escritura','Período con agricultura','Período con metales'], ans:1, exp:'Ágrafa significa "sin escritura". La época ágrafa es toda la Prehistoria, antes de que los humanos inventaran la escritura.' },
+  { q:'¿Dónde surgió el Homo sapiens moderno?', opts:['En Europa','En Asia','En África','En América'], ans:2, exp:'El Homo sapiens surgió en el continente africano hace aproximadamente 300,000 años.' },
+  { q:'¿Qué fue la "hominización"?', opts:['La invención de la escritura','El proceso de cambios físicos y culturales que llevó al ser humano actual','La domesticación de animales','El descubrimiento del fuego'], ans:1, exp:'La hominización es el largo proceso de cambios físicos (cerebro más grande, postura erguida) y culturales que llevaron al surgimiento del ser humano moderno.' },
+  { q:'¿Cuál fue el primer homínido en caminar erguido?', opts:['Homo habilis','Homo erectus','Australopithecus','Homo sapiens'], ans:2, exp:'El Australopithecus fue el primer homínido en caminar sobre dos pies, hace más de 4 millones de años.' },
+  { q:'¿Qué ciencia estudia las culturas antiguas a través de objetos y restos materiales?', opts:['Demografía','Psicología','Arqueología','Estadística'], ans:2, exp:'La arqueología estudia las culturas antiguas excavando y analizando objetos, herramientas, construcciones y otros restos materiales.' },
+  { q:'¿Cuál fue el primer animal domesticado por el ser humano?', opts:['El gato','El caballo','La oveja','El perro'], ans:3, exp:'El perro fue el primer animal domesticado por el ser humano, hace unos 15,000 años, y era usado principalmente para la caza.' },
+  { q:'¿Qué caracterizaba principalmente al Paleolítico?', opts:['Los humanos vivían de forma nómada cazando y recolectando','Los humanos cultivaban la tierra','Los humanos fundían metales','Los humanos construían ciudades'], ans:0, exp:'El Paleolítico se caracterizó por el nomadismo: los humanos se movían continuamente siguiendo animales y buscando alimentos en la naturaleza.' },
+  { q:'¿Dónde se encuentran algunas de las pinturas rupestres más famosas del mundo?', opts:['Egipto y Mesopotamia','Altamira (España) y Lascaux (Francia)','India y China','México y Perú'], ans:1, exp:'Las cuevas de Altamira en España y Lascaux en Francia conservan pinturas rupestres de más de 17,000 años de antigüedad.' },
+  { q:'¿Qué fue la Revolución Neolítica?', opts:['El descubrimiento del fuego','La invención de la escritura','El paso de ser nómadas a cultivar la tierra y criar animales','El descubrimiento de los metales'], ans:2, exp:'La Revolución Neolítica fue el gran cambio en que los humanos dejaron de ser nómadas y comenzaron a cultivar la tierra, criar animales y vivir en pueblos fijos.' },
+  { q:'¿Qué metal fue el primero en ser fundido por el ser humano?', opts:['Hierro','Bronce','Cobre','Plata'], ans:2, exp:'El cobre fue el primer metal que los humanos aprendieron a fundir, dando inicio a la Edad de los Metales alrededor del 3,000 a.C.' },
+  { q:'¿Qué civilización inventó la escritura cuneiforme?', opts:['Los egipcios','Los griegos','Los chinos','Los sumerios'], ans:3, exp:'Los sumerios de Mesopotamia (actual Irak) inventaron la escritura cuneiforme alrededor del 3,100 a.C., usando tablillas de barro.' },
+  { q:'¿Qué ruta usaron los humanos para llegar a América desde Asia?', opts:['Cruzaron el océano Pacífico en barcos','El estrecho de Bering, que era tierra firme durante las glaciaciones','Viajaron por el norte a través de Europa','Llegaron por el sur desde África'], ans:1, exp:'Durante las glaciaciones, el nivel del mar bajó y el Estrecho de Bering se convirtió en tierra firme, permitiendo a los humanos caminar desde Asia a América hace unos 15,000 años.' },
+  { q:'¿Qué homínido fue el primero en salir del continente africano?', opts:['Australopithecus','Homo habilis','Homo erectus','Homo neanderthalensis'], ans:2, exp:'El Homo erectus fue el primer homínido en salir de África, llegando a Europa y Asia hace aproximadamente 1,800,000 años.' },
+  { q:'¿Cuál de estas NO es una ciencia social que estudia la Prehistoria?', opts:['Arqueología','Sociología','Física','Antropología'], ans:2, exp:'La física es una ciencia exacta, no una ciencia social. Las ciencias sociales que estudian la prehistoria incluyen la arqueología, sociología, antropología, geografía, entre otras.' },
+  { q:'¿Qué mezcla de metales forma el bronce?', opts:['Hierro y cobre','Cobre y estaño','Plata y oro','Hierro y plomo'], ans:1, exp:'El bronce se obtiene al mezclar cobre con estaño. Esta aleación es mucho más dura que el cobre puro y fue fundamental para fabricar armas y herramientas.' },
+];
+
+let testAnswered = new Array(QUESTIONS.length).fill(null);
+
+function buildTest() {
+  const wrap = document.getElementById('test-wrap');
+  wrap.innerHTML = '';
+  testAnswered = new Array(QUESTIONS.length).fill(null);
+  const letters = ['A','B','C','D'];
+  QUESTIONS.forEach((q,qi) => {
+    const card = document.createElement('div'); card.className='q-card';
+    card.innerHTML = '<div class="q-num">Pregunta '+(qi+1)+' de '+QUESTIONS.length+'</div><div class="q-text">'+q.q+'</div><div class="q-opts" id="opts-'+qi+'"></div><div class="q-feedback" id="fb-'+qi+'"></div>';
+    wrap.appendChild(card);
+    const optsDiv = card.querySelector('#opts-'+qi);
+    q.opts.forEach((opt,oi) => {
+      const btn=document.createElement('div'); btn.className='q-opt';
+      btn.innerHTML='<span class="q-opt-letter">'+letters[oi]+'</span>'+opt;
+      btn.onclick=()=>answerQ(qi,oi);
+      optsDiv.appendChild(btn);
+    });
+  });
+  const submitWrap=document.createElement('div'); submitWrap.className='test-submit-wrap';
+  submitWrap.innerHTML='<button class="test-submit" onclick="showScore()">Ver mi resultado 🎯</button>';
+  wrap.appendChild(submitWrap);
+  const scoreDiv=document.createElement('div'); scoreDiv.className='test-score-wrap'; scoreDiv.id='score-box';
+  wrap.appendChild(scoreDiv);
+}
+
+function answerQ(qi,oi) {
+  if(testAnswered[qi]!==null) return;
+  testAnswered[qi]=oi;
+  const optsDiv=document.getElementById('opts-'+qi);
+  const opts=optsDiv.querySelectorAll('.q-opt');
+  opts.forEach((o,i)=>{
+    o.classList.add('disabled');
+    if(i===QUESTIONS[qi].ans) o.classList.add('correct');
+    else if(i===oi) o.classList.add('wrong');
+  });
+  const fb=document.getElementById('fb-'+qi);
+  fb.classList.add('show');
+  if(oi===QUESTIONS[qi].ans){ fb.classList.add('ok'); fb.textContent='✅ '+QUESTIONS[qi].exp; }
+  else { fb.classList.add('fail'); fb.textContent='❌ '+QUESTIONS[qi].exp; }
+}
+
+function showScore() {
+  let score=0;
+  testAnswered.forEach((a,i)=>{ if(a===QUESTIONS[i].ans) score++; });
+  const pct=Math.round(score/QUESTIONS.length*100);
+  let emoji='😐',msg='Sigue repasando el material, ¡tú puedes!';
+  if(pct>=90){emoji='🏆';msg='¡Excelente! Eres un experto en la Prehistoria.';}
+  else if(pct>=70){emoji='😊';msg='¡Muy bien! Tienes un buen manejo del tema. Repasa los puntos que fallaste.';}
+  else if(pct>=50){emoji='📚';msg='Buen intento. Te recomendamos repasar las épocas y sus características.';}
+  const box=document.getElementById('score-box');
+  box.classList.add('show');
+  box.innerHTML='<div class="score-emoji">'+emoji+'</div><div class="score-num">'+score+'/'+QUESTIONS.length+'</div><div class="score-label">'+pct+'% correcto</div><div class="score-msg">'+msg+'</div><button class="score-retry" onclick="buildTest();window.scrollTo(0,document.getElementById(\'page-test\').offsetTop)">Intentar de nuevo 🔄</button>';
+  box.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+buildTest();
+
+/* ===== CONTADOR DE VISITAS CON FIREBASE ===== */
+/* 
+  CONFIGURACIÓN:
+  1. Ve a https://console.firebase.google.com
+  2. Crea un proyecto → Realtime Database → Crear base de datos → Modo de prueba
+  3. En Configuración del proyecto → Tus apps → Web, copia el objeto firebaseConfig
+  4. Reemplaza el objeto FIREBASE_CONFIG de abajo con tu configuración real
+  5. En Reglas de la base de datos, usa:
+     { "rules": { ".read": true, ".write": true } }
+*/
+const FIREBASE_CONFIG = {
+  apiKey:            "TU_API_KEY",
+  authDomain:        "TU_PROYECTO.firebaseapp.com",
+  databaseURL:       "https://TU_PROYECTO-default-rtdb.firebaseio.com",
+  projectId:         "TU_PROYECTO",
+  storageBucket:     "TU_PROYECTO.appspot.com",
+  messagingSenderId: "TU_SENDER_ID",
+  appId:             "TU_APP_ID"
+};
+
+(async function initStats() {
+  /* ---- obtener IP pública del visitante ---- */
+  let myIp = 'desconocida';
+  try {
+    const r = await fetch('https://api.ipify.org?format=json');
+    const d = await r.json();
+    myIp = d.ip;
+    document.getElementById('stat-myip').textContent = 'Tu IP: ' + myIp;
+  } catch(e) {
+    document.getElementById('stat-myip').textContent = 'Tu IP: no disponible';
+  }
+
+  /* ---- validar config Firebase ---- */
+  if (FIREBASE_CONFIG.databaseURL.includes('TU_PROYECTO')) {
+    showDemoMode(myIp);
+    return;
+  }
+
+  try {
+    /* ---- importar Firebase SDK ---- */
+    const { initializeApp } = await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js');
+    const { getDatabase, ref, onValue, set, get, increment, serverTimestamp, onDisconnect, remove }
+      = await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js');
+
+    const app = initializeApp(FIREBASE_CONFIG);
+    const db  = getDatabase(app);
+
+    /* ---- 1. Registrar visita total ---- */
+    const totalRef = ref(db, 'stats/totalVisits');
+    await set(totalRef, increment(1));
+
+    /* ---- 2. Registrar IP única ---- */
+    const safeIp = myIp.replace(/\./g, '_');
+    const ipRef   = ref(db, 'ips/' + safeIp);
+    const ipSnap  = await get(ipRef);
+    if (!ipSnap.exists()) {
+      await set(ref(db, 'ips/' + safeIp), { firstVisit: Date.now(), visits: 1 });
+    } else {
+      await set(ref(db, 'ips/' + safeIp + '/visits'), increment(1));
+    }
+
+    /* ---- 3. Presencia activa (se elimina al cerrar) ---- */
+    const sessionId  = Math.random().toString(36).slice(2);
+    const presRef    = ref(db, 'presence/' + sessionId);
+    await set(presRef, { ip: myIp, since: serverTimestamp() });
+    onDisconnect(presRef).remove();
+
+    /* ---- 4. Escuchar cambios en tiempo real ---- */
+    onValue(ref(db, 'stats/totalVisits'), snap => {
+      const v = snap.val() || 0;
+      document.getElementById('stat-total').textContent = v.toLocaleString('es-CL');
+      document.getElementById('stat-total').classList.remove('stat-loading');
+    });
+
+    onValue(ref(db, 'ips'), snap => {
+      const v = snap.val() ? Object.keys(snap.val()).length : 0;
+      document.getElementById('stat-ips').textContent = v.toLocaleString('es-CL');
+      document.getElementById('stat-ips').classList.remove('stat-loading');
+    });
+
+    onValue(ref(db, 'presence'), snap => {
+      const v = snap.val() ? Object.keys(snap.val()).length : 0;
+      document.getElementById('stat-active').textContent = v.toLocaleString('es-CL');
+      document.getElementById('stat-active').classList.remove('stat-loading');
+    });
+
+  } catch(err) {
+    console.warn('Firebase no disponible:', err.message);
+    showDemoMode(myIp);
+  }
+})();
+
+function showDemoMode(ip) {
+  /* Modo demo sin Firebase: muestra datos simulados con aviso */
+  document.getElementById('stat-active').textContent  = '–';
+  document.getElementById('stat-total').textContent   = '–';
+  document.getElementById('stat-ips').textContent     = '–';
+  ['stat-active','stat-total','stat-ips'].forEach(id => {
+    document.getElementById(id).classList.remove('stat-loading');
+  });
+  const bar = document.getElementById('stats-bar');
+  const note = document.createElement('div');
+  note.className = 'stat-item';
+  note.style.cssText = 'opacity:.5;font-size:9px;font-style:italic';
+  note.textContent = '⚙️ Configura Firebase para activar el contador en tiempo real';
+  bar.appendChild(note);
+}
 </script>
-</body>
-</html>
+
+
+</body></html>
