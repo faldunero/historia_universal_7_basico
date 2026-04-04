@@ -191,6 +191,42 @@ body::before { content:''; position:fixed; inset:0; z-index:-1; pointer-events:n
 .test-submit:hover { opacity:.88; }
 @media (max-width:600px) { .tl-wrap{padding:0 16px 40px;} .axis-outer{margin:90px 0 80px;} .ev-label{font-size:9px;max-width:60px;} .ev-year{font-size:8px;} .epoch-grid{grid-template-columns:1fr 1fr;} }
 @media (max-width:400px) { .epoch-grid{grid-template-columns:1fr;} }
+/* ===== LÍNEA DE TIEMPO HOMINIZACIÓN ===== */
+.homin-tl-wrap { max-width:960px; margin:0 auto; padding:0 24px 56px; }
+.homin-tl-hint { text-align:center; font-size:13px; color:var(--muted); margin-bottom:28px; animation:pulse 2.4s ease-in-out infinite; }
+.homin-tl-track { position:relative; height:10px; background:var(--sand); border-radius:5px; margin:120px 0 80px; cursor:pointer; }
+.homin-tl-fill { position:absolute; left:0; top:0; height:10px; border-radius:5px; background:linear-gradient(90deg,#C44B8A,#7C5CBF,#3D7FC1,#2A9D6E,#C2650A); transition:width .15s; pointer-events:none; }
+.homin-tl-arrow { position:absolute; right:-14px; top:-5px; width:0; height:0; border-left:16px solid var(--sand); border-top:10px solid transparent; border-bottom:10px solid transparent; }
+.homin-node { position:absolute; display:flex; flex-direction:column; align-items:center; cursor:pointer; }
+.homin-node.above { bottom:18px; }
+.homin-node.below { top:18px; }
+.homin-node-dot { width:22px; height:22px; border-radius:50%; border:3px solid var(--bg); box-shadow:0 0 0 3px var(--nc); transition:transform .2s, box-shadow .2s; z-index:2; background:var(--nc); }
+.homin-node:hover .homin-node-dot, .homin-node.active .homin-node-dot { transform:scale(1.35); box-shadow:0 0 0 5px color-mix(in srgb,var(--nc) 35%,transparent); }
+.homin-node-stem { width:2px; height:28px; background:var(--nc); opacity:.4; }
+.homin-node-label { font-size:10px; font-weight:800; text-align:center; max-width:82px; line-height:1.3; color:var(--nc); background:color-mix(in srgb,var(--nc) 10%,var(--bg)); border-radius:6px; padding:3px 6px; }
+.homin-node-year { font-size:9px; font-weight:700; color:var(--muted); text-align:center; }
+.homin-node.above .homin-node-label { margin-bottom:4px; }
+.homin-node.below .homin-node-label { margin-top:4px; }
+.homin-node.above .homin-node-year { order:-1; margin-bottom:3px; }
+.homin-detail { max-width:860px; margin:0 auto 16px; padding:0 24px; }
+.homin-detail-card { background:var(--paper); border-radius:20px; border:2px solid var(--hdc,#C44B8A); padding:26px 26px 22px; display:grid; grid-template-columns:auto 1fr; gap:20px; align-items:start; animation:pop .25s cubic-bezier(.34,1.56,.64,1); }
+@keyframes pop { from{transform:scale(.95);opacity:0} to{transform:scale(1);opacity:1} }
+.hd-avatar { width:80px; height:80px; border-radius:50%; background:color-mix(in srgb,var(--hdc) 15%,var(--bg)); border:3px solid var(--hdc); display:flex; align-items:center; justify-content:center; font-size:38px; flex-shrink:0; }
+.hd-right {}
+.hd-name { font-family:'Cabin Sketch',cursive; font-size:22px; color:var(--hdc); margin-bottom:3px; }
+.hd-period { font-size:11px; font-weight:800; letter-spacing:.07em; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
+.hd-body { font-size:13px; line-height:1.7; color:var(--ink); margin-bottom:12px; }
+.hd-tags { display:flex; gap:8px; flex-wrap:wrap; }
+.hd-tag { font-size:10px; font-weight:800; background:color-mix(in srgb,var(--hdc) 12%,var(--bg)); color:var(--hdc); border-radius:20px; padding:3px 10px; }
+@media(max-width:500px){ .homin-detail-card{grid-template-columns:1fr} .hd-avatar{margin:0 auto} }
+/* TEST selector */
+.test-selector { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; max-width:600px; margin:0 auto 32px; }
+.test-sel-btn { flex:1; min-width:200px; background:var(--paper); border:2px solid var(--tsbc,var(--sand)); border-radius:16px; padding:18px 16px; cursor:pointer; text-align:center; transition:transform .15s,border-color .15s,box-shadow .15s; font-family:'Nunito',sans-serif; }
+.test-sel-btn:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(0,0,0,.08); border-color:var(--tsbc); }
+.test-sel-btn.selected { border-color:var(--tsbc); background:color-mix(in srgb,var(--tsbc) 8%,var(--bg)); box-shadow:0 0 0 3px color-mix(in srgb,var(--tsbc) 20%,transparent); }
+.tsb-emoji { font-size:32px; margin-bottom:8px; }
+.tsb-title { font-family:'Cabin Sketch',cursive; font-size:18px; color:var(--tsbc); margin-bottom:4px; }
+.tsb-sub { font-size:12px; color:var(--muted); font-weight:600; }
 </style>
 </head>
 <body>
@@ -204,8 +240,9 @@ body::before { content:''; position:fixed; inset:0; z-index:-1; pointer-events:n
   <button class="nav-btn" style="--nc:var(--neol)" data-page="neolitico" onclick="showPage('neolitico')">🌾 Neolítico</button>
   <button class="nav-btn" style="--nc:var(--metal)" data-page="metales" onclick="showPage('metales')">⚔️ Metales</button>
   <button class="nav-btn" style="--nc:var(--homin)" data-page="hominizacion" onclick="showPage('hominizacion')">🧬 Hominización</button>
+  <button class="nav-btn" style="--nc:#8B2FC9" data-page="homin-timeline" onclick="showPage('homin-timeline')">🦧 Línea Homínidos</button>
   <button class="nav-btn" style="--nc:#3D7FC1" data-page="mapa" onclick="showPage('mapa')">🗺️ Mapa</button>
-  <button class="nav-btn" style="--nc:var(--test)" data-page="test" onclick="showPage('test')">📝 Test</button>
+  <button class="nav-btn" style="--nc:var(--test)" data-page="test" onclick="showPage('test')">📝 Tests</button>
   <button class="nav-btn" style="--nc:var(--tl)" data-page="timeline" onclick="showPage('timeline')">📅 Línea de Tiempo</button>
 </nav>
 
@@ -547,12 +584,56 @@ body::before { content:''; position:fixed; inset:0; z-index:-1; pointer-events:n
   </div>
 </div>
 
+<!-- ========== LÍNEA DE TIEMPO HOMÍNIDOS ========== -->
+<div id="page-homin-timeline" class="page">
+  <div class="epoch-header" style="--ec:#8B2FC9">
+    <button class="back-btn" onclick="showPage('home')">← Volver al inicio</button>
+    <div class="epoch-badge" style="background:#8B2FC9">Evolución humana</div>
+    <div style="font-size:48px;margin-bottom:8px">🦧</div>
+    <div class="epoch-h2" style="color:#8B2FC9">Línea de los Homínidos</div>
+    <div class="epoch-years">7,000,000 a.C. — Presente</div>
+    <p class="epoch-intro">Mueve el mouse sobre cada punto para descubrir las características de cada especie en su etapa evolutiva. Desde el Australopithecus hasta el Homo sapiens.</p>
+  </div>
+  <div class="homin-tl-wrap">
+    <p class="homin-tl-hint">🖱️ Pasa el mouse (o toca) sobre cada especie para ver sus características</p>
+    <div class="homin-tl-track" id="homin-track">
+      <div class="homin-tl-fill" id="homin-fill" style="width:0%"></div>
+      <div class="homin-tl-arrow"></div>
+      <!-- nodes injected by JS -->
+    </div>
+    <!-- Detail card -->
+    <div class="homin-detail" id="homin-detail">
+      <div class="homin-detail-card" id="homin-detail-card" style="--hdc:#C44B8A">
+        <div class="hd-avatar" id="hd-avatar">🦧</div>
+        <div class="hd-right">
+          <div class="hd-name" id="hd-name">Selecciona una especie</div>
+          <div class="hd-period" id="hd-period">Pasa el mouse sobre un punto de la línea</div>
+          <div class="hd-body" id="hd-body">Cada punto de la línea representa una etapa clave en la evolución del ser humano. Pasa el mouse o toca cualquiera para ver sus características.</div>
+          <div class="hd-tags" id="hd-tags"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ========== TEST ========== -->
 <div id="page-test" class="page">
   <div class="test-header">
     <div class="test-tag">Autoevaluación</div>
     <div class="test-h2">¿Cuánto aprendiste?</div>
-    <p class="test-sub">Responde las 15 preguntas y descubre tu puntaje. ¡Cada pregunta tiene solo una respuesta correcta!</p>
+    <p class="test-sub">Elige el test que quieres responder. Cada uno tiene 15 preguntas con una sola respuesta correcta.</p>
+  </div>
+  <div class="test-selector">
+    <div class="test-sel-btn" style="--tsbc:var(--test)" id="sel-t1" onclick="selectTest(1)">
+      <div class="tsb-emoji">🌾</div>
+      <div class="tsb-title">Test 1</div>
+      <div class="tsb-sub">Épocas, culturas y metales</div>
+    </div>
+    <div class="test-sel-btn" style="--tsbc:var(--homin)" id="sel-t2" onclick="selectTest(2)">
+      <div class="tsb-emoji">🧬</div>
+      <div class="tsb-title">Test 2</div>
+      <div class="tsb-sub">Hominización y evolución</div>
+    </div>
   </div>
   <div class="test-wrap" id="test-wrap"></div>
 </div>
@@ -744,81 +825,186 @@ document.head.appendChild(mapStyle);
 updateMap(0);
 
 /* ===== TEST ===== */
-const QUESTIONS = [
+let testAnswered = [];
+let currentTestSet = 1;
+
+const QUESTIONS_T1 = [
   { q:'¿Qué significa "época ágrafa"?', opts:['Período con escritura avanzada','Período sin escritura','Período con agricultura','Período con metales'], ans:1, exp:'Ágrafa significa "sin escritura". La época ágrafa es toda la Prehistoria, antes de que los humanos inventaran la escritura.' },
   { q:'¿Dónde surgió el Homo sapiens moderno?', opts:['En Europa','En Asia','En África','En América'], ans:2, exp:'El Homo sapiens surgió en el continente africano hace aproximadamente 300,000 años.' },
-  { q:'¿Qué fue la "hominización"?', opts:['La invención de la escritura','El proceso de cambios físicos y culturales que llevó al ser humano actual','La domesticación de animales','El descubrimiento del fuego'], ans:1, exp:'La hominización es el largo proceso de cambios físicos (cerebro más grande, postura erguida) y culturales que llevaron al surgimiento del ser humano moderno.' },
-  { q:'¿Cuál fue el primer homínido en caminar erguido?', opts:['Homo habilis','Homo erectus','Australopithecus','Homo sapiens'], ans:2, exp:'El Australopithecus fue el primer homínido en caminar sobre dos pies, hace más de 4 millones de años.' },
-  { q:'¿Qué ciencia estudia las culturas antiguas a través de objetos y restos materiales?', opts:['Demografía','Psicología','Arqueología','Estadística'], ans:2, exp:'La arqueología estudia las culturas antiguas excavando y analizando objetos, herramientas, construcciones y otros restos materiales.' },
-  { q:'¿Cuál fue el primer animal domesticado por el ser humano?', opts:['El gato','El caballo','La oveja','El perro'], ans:3, exp:'El perro fue el primer animal domesticado por el ser humano, hace unos 15,000 años, y era usado principalmente para la caza.' },
-  { q:'¿Qué caracterizaba principalmente al Paleolítico?', opts:['Los humanos vivían de forma nómada cazando y recolectando','Los humanos cultivaban la tierra','Los humanos fundían metales','Los humanos construían ciudades'], ans:0, exp:'El Paleolítico se caracterizó por el nomadismo: los humanos se movían continuamente siguiendo animales y buscando alimentos en la naturaleza.' },
-  { q:'¿Dónde se encuentran algunas de las pinturas rupestres más famosas del mundo?', opts:['Egipto y Mesopotamia','Altamira (España) y Lascaux (Francia)','India y China','México y Perú'], ans:1, exp:'Las cuevas de Altamira en España y Lascaux en Francia conservan pinturas rupestres de más de 17,000 años de antigüedad.' },
-  { q:'¿Qué fue la Revolución Neolítica?', opts:['El descubrimiento del fuego','La invención de la escritura','El paso de ser nómadas a cultivar la tierra y criar animales','El descubrimiento de los metales'], ans:2, exp:'La Revolución Neolítica fue el gran cambio en que los humanos dejaron de ser nómadas y comenzaron a cultivar la tierra, criar animales y vivir en pueblos fijos.' },
-  { q:'¿Qué metal fue el primero en ser fundido por el ser humano?', opts:['Hierro','Bronce','Cobre','Plata'], ans:2, exp:'El cobre fue el primer metal que los humanos aprendieron a fundir, dando inicio a la Edad de los Metales alrededor del 3,000 a.C.' },
-  { q:'¿Qué civilización inventó la escritura cuneiforme?', opts:['Los egipcios','Los griegos','Los chinos','Los sumerios'], ans:3, exp:'Los sumerios de Mesopotamia (actual Irak) inventaron la escritura cuneiforme alrededor del 3,100 a.C., usando tablillas de barro.' },
-  { q:'¿Qué ruta usaron los humanos para llegar a América desde Asia?', opts:['Cruzaron el océano Pacífico en barcos','El estrecho de Bering, que era tierra firme durante las glaciaciones','Viajaron por el norte a través de Europa','Llegaron por el sur desde África'], ans:1, exp:'Durante las glaciaciones, el nivel del mar bajó y el Estrecho de Bering se convirtió en tierra firme, permitiendo a los humanos caminar desde Asia a América hace unos 15,000 años.' },
-  { q:'¿Qué homínido fue el primero en salir del continente africano?', opts:['Australopithecus','Homo habilis','Homo erectus','Homo neanderthalensis'], ans:2, exp:'El Homo erectus fue el primer homínido en salir de África, llegando a Europa y Asia hace aproximadamente 1,800,000 años.' },
-  { q:'¿Cuál de estas NO es una ciencia social que estudia la Prehistoria?', opts:['Arqueología','Sociología','Física','Antropología'], ans:2, exp:'La física es una ciencia exacta, no una ciencia social. Las ciencias sociales que estudian la prehistoria incluyen la arqueología, sociología, antropología, geografía, entre otras.' },
-  { q:'¿Qué mezcla de metales forma el bronce?', opts:['Hierro y cobre','Cobre y estaño','Plata y oro','Hierro y plomo'], ans:1, exp:'El bronce se obtiene al mezclar cobre con estaño. Esta aleación es mucho más dura que el cobre puro y fue fundamental para fabricar armas y herramientas.' },
+  { q:'¿Qué fue la "hominización"?', opts:['La invención de la escritura','El proceso de cambios físicos y culturales que llevó al ser humano actual','La domesticación de animales','El descubrimiento del fuego'], ans:1, exp:'La hominización es el largo proceso de cambios físicos y culturales que llevaron al surgimiento del ser humano moderno.' },
+  { q:'¿Cuál fue el primer animal domesticado por el ser humano?', opts:['El gato','El caballo','La oveja','El perro'], ans:3, exp:'El perro fue el primer animal domesticado, hace unos 15,000 años, usado principalmente para la caza.' },
+  { q:'¿Qué caracterizaba principalmente al Paleolítico?', opts:['Los humanos vivían de forma nómada cazando y recolectando','Los humanos cultivaban la tierra','Los humanos fundían metales','Los humanos construían ciudades'], ans:0, exp:'El Paleolítico se caracterizó por el nomadismo: los humanos se movían continuamente siguiendo animales y buscando alimentos.' },
+  { q:'¿Dónde se encuentran algunas de las pinturas rupestres más famosas del mundo?', opts:['Egipto y Mesopotamia','Altamira (España) y Lascaux (Francia)','India y China','México y Perú'], ans:1, exp:'Las cuevas de Altamira y Lascaux conservan pinturas rupestres de más de 17,000 años de antigüedad.' },
+  { q:'¿Qué fue la Revolución Neolítica?', opts:['El descubrimiento del fuego','La invención de la escritura','El paso de ser nómadas a cultivar la tierra y criar animales','El descubrimiento de los metales'], ans:2, exp:'La Revolución Neolítica fue el gran cambio en que los humanos dejaron de ser nómadas y comenzaron a cultivar y criar animales.' },
+  { q:'¿Qué metal fue el primero en ser fundido por el ser humano?', opts:['Hierro','Bronce','Cobre','Plata'], ans:2, exp:'El cobre fue el primer metal que los humanos aprendieron a fundir, alrededor del 3,000 a.C.' },
+  { q:'¿Qué civilización inventó la escritura cuneiforme?', opts:['Los egipcios','Los griegos','Los chinos','Los sumerios'], ans:3, exp:'Los sumerios de Mesopotamia inventaron la escritura cuneiforme alrededor del 3,100 a.C., usando tablillas de barro.' },
+  { q:'¿Qué ruta usaron los humanos para llegar a América desde Asia?', opts:['Cruzaron el océano Pacífico en barcos','El estrecho de Bering, que era tierra firme durante las glaciaciones','Viajaron por el norte a través de Europa','Llegaron por el sur desde África'], ans:1, exp:'El Estrecho de Bering se convirtió en tierra firme durante las glaciaciones, permitiendo caminar desde Asia a América.' },
+  { q:'¿Qué mezcla de metales forma el bronce?', opts:['Hierro y cobre','Cobre y estaño','Plata y oro','Hierro y plomo'], ans:1, exp:'El bronce se obtiene al mezclar cobre con estaño. Es mucho más duro que el cobre puro.' },
+  { q:'¿Cuál de estas NO es una ciencia social que estudia la Prehistoria?', opts:['Arqueología','Sociología','Física','Antropología'], ans:2, exp:'La física es una ciencia exacta. Las ciencias sociales incluyen arqueología, sociología, antropología y geografía, entre otras.' },
+  { q:'¿Qué permite hacer la cerámica que antes era imposible?', opts:['Cazar animales','Guardar líquidos y alimentos en recipientes resistentes','Construir casas','Fundir metales'], ans:1, exp:'La cerámica permitió crear vasijas resistentes al agua y al fuego para guardar alimentos y líquidos de forma segura.' },
+  { q:'¿Qué eran los microlitos del Mesolítico?', opts:['Pequeñas pinturas en cuevas','Animales domésticos pequeños','Pequeñas herramientas de piedra muy precisas','Semillas para cultivar'], ans:2, exp:'Los microlitos eran pequeñas láminas de piedra talladas con precisión, usadas como puntas de flecha o en hoces para cortar plantas.' },
+  { q:'¿En qué período se construyó Stonehenge?', opts:['Paleolítico','Mesolítico','Neolítico','Edad del Bronce'], ans:2, exp:'Stonehenge fue construido durante el Neolítico, alrededor del 3,000 a.C. Cada piedra pesa más de 25 toneladas.' },
 ];
 
-let testAnswered = new Array(QUESTIONS.length).fill(null);
+const QUESTIONS_T2 = [
+  { q:'¿Cuál fue el primer homínido en caminar erguido sobre dos pies?', opts:['Homo habilis','Homo erectus','Australopithecus','Homo neanderthalensis'], ans:2, exp:'El Australopithecus fue el primer homínido en caminar bípedamente, hace más de 4 millones de años en África oriental.' },
+  { q:'¿Qué significa el nombre "Homo habilis"?', opts:['Hombre erguido','Hombre hábil','Hombre sabio','Hombre del valle del Neander'], ans:1, exp:'Homo habilis significa "hombre hábil" porque fue el primero en fabricar herramientas de piedra de forma intencional.' },
+  { q:'¿Qué homínido fue el primero en salir del continente africano?', opts:['Australopithecus','Homo habilis','Homo erectus','Homo sapiens'], ans:2, exp:'El Homo erectus fue el primer homínido en abandonar África, llegando a Europa y Asia hace 1,800,000 años.' },
+  { q:'¿Hace cuántos años aproximadamente apareció el Homo sapiens?', opts:['50,000 años','300,000 años','2,000,000 años','4,000,000 años'], ans:1, exp:'El Homo sapiens (nosotros) apareció hace aproximadamente 300,000 años en el continente africano.' },
+  { q:'¿Qué característica física distinguía al Homo neanderthalensis?', opts:['Era muy alto y delgado','Era muy pequeño como un chimpancé','Era muy robusto y adaptado al frío','No tenía pelo en el cuerpo'], ans:2, exp:'Los neandertales eran robustos, de huesos gruesos y estaban perfectamente adaptados para sobrevivir en los fríos climas de Europa.' },
+  { q:'¿Qué evidencia muestra que los neandertales tenían pensamiento simbólico?', opts:['Construían pirámides','Enterraban a sus muertos con rituales','Inventaron la escritura','Navegaban por los océanos'], ans:1, exp:'Los neandertales enterraban a sus muertos, a veces con flores y objetos, lo que demuestra que tenían pensamiento simbólico y creencias.' },
+  { q:'¿Cuál fue el tamaño aproximado del cerebro del Australopithecus comparado con el humano actual?', opts:['Igual que el nuestro','El doble que el nuestro','Similar al de un chimpancé','La mitad del nuestro'], ans:2, exp:'El Australopithecus tenía un cerebro de unos 450 cc, similar al de un chimpancé, mientras que el Homo sapiens tiene unos 1,350 cc.' },
+  { q:'¿Qué habilidad fundamental desarrolló el Homo erectus que ningún homínido anterior dominaba?', opts:['La escritura','El uso y control del fuego','La agricultura','La metalurgia'], ans:1, exp:'El Homo erectus fue el primer homínido en controlar y usar el fuego de manera sistemática, lo que cambió radicalmente su forma de vida.' },
+  { q:'¿Con qué especie convivió brevemente el Homo sapiens antes de que desapareciera?', opts:['Australopithecus','Homo habilis','Homo neanderthalensis','Homo erectus'], ans:2, exp:'El Homo sapiens y el Homo neanderthalensis convivieron en Europa y Asia occidental durante miles de años antes de que los neandertales desaparecieran hace 30,000 años.' },
+  { q:'¿Dónde vivía el Australopithecus?', opts:['En toda Europa y Asia','Solo en América del Sur','En el este y sur de África','En las islas del Pacífico'], ans:2, exp:'El Australopithecus vivía exclusivamente en el este y sur de África, principalmente en zonas de sabana y bosques abiertos.' },
+  { q:'¿Qué ciencia estudia los restos óseos para conocer la evolución del ser humano?', opts:['Demografía','Biología y Paleontología','Estadística','Cronología'], ans:1, exp:'La biología y la paleontología estudian los restos óseos (fósiles) para reconstruir la historia de la evolución humana.' },
+  { q:'¿Cuál es el único homínido que ha sobrevivido hasta hoy?', opts:['Homo neanderthalensis','Homo erectus','Australopithecus','Homo sapiens'], ans:3, exp:'El Homo sapiens es el único homínido vivo. Todas las demás especies (Australopithecus, Homo habilis, Homo erectus, Neandertales) se han extinguido.' },
+  { q:'¿Qué porcentaje de ADN comparten los humanos modernos con los chimpancés?', opts:['60%','75%','98,7%','50%'], ans:2, exp:'Los humanos comparten aproximadamente un 98,7% de ADN con los chimpancés, lo que los convierte en nuestros parientes vivos más cercanos.' },
+  { q:'¿Hace cuánto tiempo desaparecieron los neandertales?', opts:['Hace 5,000 años','Hace 10,000 años','Hace 30,000 años','Hace 100,000 años'], ans:2, exp:'Los neandertales desaparecieron hace aproximadamente 30,000 años, poco después de que el Homo sapiens llegara masivamente a Europa.' },
+  { q:'¿Qué rasgo físico evolucionó progresivamente en todos los homínidos hasta llegar al Homo sapiens?', opts:['La reducción del tamaño del cerebro','El aumento del tamaño del cerebro','La pérdida de la postura erguida','El aumento del tamaño del cuerpo'], ans:1, exp:'El aumento progresivo del tamaño del cerebro es una de las características más importantes de la evolución humana, desde los 450cc del Australopithecus hasta los 1,350cc del Homo sapiens.' },
+];
 
-function buildTest() {
+const HOMIN_NODES = [
+  { id:'australo', pct:4,  pos:'above', color:'#C44B8A', label:'Australo-\npithecus', year:'~4,000,000 a.C.',
+    emoji:'🦧', name:'Australopithecus', period:'4,000,000 – 1,000,000 a.C.',
+    body:'Primer homínido en caminar erguido. Tenía un cerebro pequeño (~450 cc), similar al de un chimpancé. Medía unos 120 cm y pesaba alrededor de 40 kg. Vivía en sabanas abiertas del este y sur de África.',
+    tags:['Bipedismo','África','Cerebro pequeño','Herramientas básicas'] },
+  { id:'habilis', pct:22, pos:'below', color:'#A0389A', label:'Homo\nhabilis', year:'~2,500,000 a.C.',
+    emoji:'🔧', name:'Homo habilis', period:'2,500,000 – 1,500,000 a.C.',
+    body:'El "hombre hábil". Primer homínido en fabricar herramientas de piedra de forma intencional (cultura Olduvayense). Su cerebro (~650 cc) era notablemente más grande que el del Australopithecus. Comenzaba a desarrollar el lenguaje.',
+    tags:['Herramientas líticas','Cerebro ~650 cc','Lenguaje incipiente','Solo en África'] },
+  { id:'erectus', pct:42, pos:'above', color:'#7C5CBF', label:'Homo\nerectus', year:'~1,800,000 a.C.',
+    emoji:'🔥', name:'Homo erectus', period:'1,800,000 – 300,000 a.C.',
+    body:'El "hombre erguido". Primero en salir de África y colonizar Europa y Asia. Dominó el uso del fuego, fabricó hachas de mano (cultura Achelense) y vivía en grupos sociales organizados. Cerebro de ~900 cc.',
+    tags:['Sale de África','Domina el fuego','Cerebro ~900 cc','Herramienta bifacial','Asia y Europa'] },
+  { id:'neandertal', pct:62, pos:'below', color:'#3D7FC1', label:'Homo\nneandertal', year:'~400,000 a.C.',
+    emoji:'❄️', name:'Homo neanderthalensis', period:'400,000 – 30,000 a.C.',
+    body:'Muy robusto y adaptado al frío glacial de Europa. Cerebro de ~1,450 cc (¡más grande que el nuestro!). Enterraba a sus muertos, cuidaba a los enfermos, usaba ocre rojo y fabricaba instrumentos complejos. Convivió con el Homo sapiens.',
+    tags:['Adaptado al frío','Entierra a sus muertos','Cerebro ~1,450 cc','Pensamiento simbólico','Europa y Asia occidental'] },
+  { id:'sapiens', pct:84, pos:'above', color:'#2A9D6E', label:'Homo\nsapiens', year:'~300,000 a.C.',
+    emoji:'🧑', name:'Homo sapiens', period:'~300,000 a.C. – Presente',
+    body:'¡Somos nosotros! Cerebro de ~1,350 cc, altamente desarrollado. Inventó el lenguaje articulado, el arte rupestre, la escritura y la tecnología. Se expandió por todos los continentes y es el único homínido vivo en la actualidad.',
+    tags:['Lenguaje articulado','Arte y escritura','Todos los continentes','Tecnología avanzada','Único superviviente'] },
+  { id:'sapiens-hoy', pct:97, pos:'below', color:'#C2650A', label:'Humano\nmoderno', year:'~3,000 a.C.',
+    emoji:'🏙️', name:'Homo sapiens — Civilización', period:'3,000 a.C. – Presente',
+    body:'El Homo sapiens desarrolló la agricultura, las ciudades, la escritura y los metales. Fundó las primeras civilizaciones en Mesopotamia, Egipto, India y China. Hoy somos más de 8,000 millones de personas en el planeta.',
+    tags:['Escritura','Ciudades','Agricultura','Metales','8,000 millones de personas'] },
+];
+
+function buildHominTimeline() {
+  const track = document.getElementById('homin-track');
+  HOMIN_NODES.forEach(node => {
+    const el = document.createElement('div');
+    el.className = 'homin-node ' + node.pos;
+    el.style.left = 'calc(' + node.pct + '% - 11px)';
+    el.style.setProperty('--nc', node.color);
+    if (node.pos === 'above') el.style.bottom = '13px';
+    else el.style.top = '13px';
+    const lines = node.label.split('\n').join('<br>');
+    const dot   = '<div class="homin-node-dot"></div>';
+    const stem  = '<div class="homin-node-stem"></div>';
+    const label = '<div class="homin-node-label">' + lines + '</div>';
+    const year  = '<div class="homin-node-year">' + node.year + '</div>';
+    el.innerHTML = node.pos === 'above'
+      ? year + label + stem + dot
+      : dot + stem + label + year;
+    const show = () => showHominDetail(node);
+    el.addEventListener('mouseenter', show);
+    el.addEventListener('click', show);
+    el.id = 'hnode-' + node.id;
+    track.appendChild(el);
+  });
+  showHominDetail(HOMIN_NODES[0]);
+}
+
+function showHominDetail(node) {
+  document.querySelectorAll('.homin-node').forEach(n => n.classList.remove('active'));
+  const el = document.getElementById('hnode-' + node.id);
+  if (el) el.classList.add('active');
+  document.getElementById('homin-fill').style.width = node.pct + '%';
+  const card = document.getElementById('homin-detail-card');
+  card.style.setProperty('--hdc', node.color);
+  card.style.borderColor = node.color;
+  document.getElementById('hd-avatar').textContent  = node.emoji;
+  document.getElementById('hd-name').textContent    = node.name;
+  document.getElementById('hd-name').style.color    = node.color;
+  document.getElementById('hd-period').textContent  = node.period;
+  document.getElementById('hd-body').textContent    = node.body;
+  const tagsEl = document.getElementById('hd-tags');
+  tagsEl.innerHTML = node.tags.map(t => '<span class="hd-tag">' + t + '</span>').join('');
+  card.style.animation = 'none';
+  void card.offsetWidth;
+  card.style.animation = 'pop .25s cubic-bezier(.34,1.56,.64,1)';
+}
+
+buildHominTimeline();
+
+/* ===== TEST ===== */
+function selectTest(n) {
+  currentTestSet = n;
+  document.getElementById('sel-t1').classList.toggle('selected', n === 1);
+  document.getElementById('sel-t2').classList.toggle('selected', n === 2);
+  const qs = n === 1 ? QUESTIONS_T1 : QUESTIONS_T2;
+  buildTest(qs, n);
+}
+
+function buildTest(qs, num) {
   const wrap = document.getElementById('test-wrap');
   wrap.innerHTML = '';
-  testAnswered = new Array(QUESTIONS.length).fill(null);
+  testAnswered = new Array(qs.length).fill(null);
+  const color = num === 1 ? 'var(--test)' : 'var(--homin)';
   const letters = ['A','B','C','D'];
-  QUESTIONS.forEach((q,qi) => {
-    const card = document.createElement('div'); card.className='q-card';
-    card.innerHTML = '<div class="q-num">Pregunta '+(qi+1)+' de '+QUESTIONS.length+'</div><div class="q-text">'+q.q+'</div><div class="q-opts" id="opts-'+qi+'"></div><div class="q-feedback" id="fb-'+qi+'"></div>';
+  qs.forEach((q,qi) => {
+    const card = document.createElement('div'); card.className = 'q-card';
+    card.innerHTML = '<div class="q-num">Pregunta ' + (qi+1) + ' de ' + qs.length + '</div><div class="q-text">' + q.q + '</div><div class="q-opts" id="opts-' + qi + '"></div><div class="q-feedback" id="fb-' + qi + '"></div>';
     wrap.appendChild(card);
-    const optsDiv = card.querySelector('#opts-'+qi);
-    q.opts.forEach((opt,oi) => {
-      const btn=document.createElement('div'); btn.className='q-opt';
-      btn.innerHTML='<span class="q-opt-letter">'+letters[oi]+'</span>'+opt;
-      btn.onclick=()=>answerQ(qi,oi);
+    const optsDiv = card.querySelector('#opts-' + qi);
+    q.opts.forEach((opt, oi) => {
+      const btn = document.createElement('div'); btn.className = 'q-opt';
+      btn.innerHTML = '<span class="q-opt-letter">' + letters[oi] + '</span>' + opt;
+      btn.onclick = () => answerQ(qi, oi, qs);
       optsDiv.appendChild(btn);
     });
   });
-  const submitWrap=document.createElement('div'); submitWrap.className='test-submit-wrap';
-  submitWrap.innerHTML='<button class="test-submit" onclick="showScore()">Ver mi resultado 🎯</button>';
+  const submitWrap = document.createElement('div'); submitWrap.className = 'test-submit-wrap';
+  submitWrap.innerHTML = '<button class="test-submit" style="background:' + color + '" onclick="showScore(currentTestSet === 1 ? QUESTIONS_T1 : QUESTIONS_T2)">Ver mi resultado 🎯</button>';
   wrap.appendChild(submitWrap);
-  const scoreDiv=document.createElement('div'); scoreDiv.className='test-score-wrap'; scoreDiv.id='score-box';
+  const scoreDiv = document.createElement('div'); scoreDiv.className = 'test-score-wrap'; scoreDiv.id = 'score-box';
   wrap.appendChild(scoreDiv);
 }
 
-function answerQ(qi,oi) {
-  if(testAnswered[qi]!==null) return;
-  testAnswered[qi]=oi;
-  const optsDiv=document.getElementById('opts-'+qi);
-  const opts=optsDiv.querySelectorAll('.q-opt');
-  opts.forEach((o,i)=>{
+function answerQ(qi, oi, qs) {
+  if (testAnswered[qi] !== null) return;
+  testAnswered[qi] = oi;
+  const optsDiv = document.getElementById('opts-' + qi);
+  const opts = optsDiv.querySelectorAll('.q-opt');
+  opts.forEach((o,i) => {
     o.classList.add('disabled');
-    if(i===QUESTIONS[qi].ans) o.classList.add('correct');
-    else if(i===oi) o.classList.add('wrong');
+    if (i === qs[qi].ans) o.classList.add('correct');
+    else if (i === oi) o.classList.add('wrong');
   });
-  const fb=document.getElementById('fb-'+qi);
+  const fb = document.getElementById('fb-' + qi);
   fb.classList.add('show');
-  if(oi===QUESTIONS[qi].ans){ fb.classList.add('ok'); fb.textContent='✅ '+QUESTIONS[qi].exp; }
-  else { fb.classList.add('fail'); fb.textContent='❌ '+QUESTIONS[qi].exp; }
+  if (oi === qs[qi].ans) { fb.classList.add('ok'); fb.textContent = '✅ ' + qs[qi].exp; }
+  else { fb.classList.add('fail'); fb.textContent = '❌ ' + qs[qi].exp; }
 }
 
-function showScore() {
-  let score=0;
-  testAnswered.forEach((a,i)=>{ if(a===QUESTIONS[i].ans) score++; });
-  const pct=Math.round(score/QUESTIONS.length*100);
-  let emoji='😐',msg='Sigue repasando el material, ¡tú puedes!';
-  if(pct>=90){emoji='🏆';msg='¡Excelente! Eres un experto en la Prehistoria.';}
-  else if(pct>=70){emoji='😊';msg='¡Muy bien! Tienes un buen manejo del tema. Repasa los puntos que fallaste.';}
-  else if(pct>=50){emoji='📚';msg='Buen intento. Te recomendamos repasar las épocas y sus características.';}
-  const box=document.getElementById('score-box');
+function showScore(qs) {
+  let score = 0;
+  testAnswered.forEach((a,i) => { if (a === qs[i].ans) score++; });
+  const pct = Math.round(score / qs.length * 100);
+  let emoji = '😐', msg = 'Sigue repasando el material, ¡tú puedes!';
+  if (pct >= 90) { emoji = '🏆'; msg = '¡Excelente! Dominas esta materia.'; }
+  else if (pct >= 70) { emoji = '😊'; msg = '¡Muy bien! Repasa los puntos que fallaste.'; }
+  else if (pct >= 50) { emoji = '📚'; msg = 'Buen intento. Revisa la sección correspondiente.'; }
+  const color = currentTestSet === 1 ? 'var(--test)' : 'var(--homin)';
+  const box = document.getElementById('score-box');
   box.classList.add('show');
-  box.innerHTML='<div class="score-emoji">'+emoji+'</div><div class="score-num">'+score+'/'+QUESTIONS.length+'</div><div class="score-label">'+pct+'% correcto</div><div class="score-msg">'+msg+'</div><button class="score-retry" onclick="buildTest();window.scrollTo(0,document.getElementById(\'page-test\').offsetTop)">Intentar de nuevo 🔄</button>';
-  box.scrollIntoView({behavior:'smooth',block:'center'});
+  box.innerHTML = '<div class="score-emoji">' + emoji + '</div><div class="score-num">' + score + '/' + qs.length + '</div><div class="score-label">' + pct + '% correcto</div><div class="score-msg">' + msg + '</div><button class="score-retry" style="background:' + color + '" onclick="selectTest(' + currentTestSet + ');window.scrollTo(0,0)">Intentar de nuevo 🔄</button>';
+  box.scrollIntoView({ behavior:'smooth', block:'center' });
 }
 
-buildTest();
+selectTest(1);
 </script>
 </body>
 </html>
